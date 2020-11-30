@@ -1,11 +1,17 @@
 package Aquascape;
 
+import java.util.ArrayList;
+
 public class Aquascape {
+    private ArrayList<Plant> plantsInAquarium;
+    private ArrayList<Fish> fishInAquarium;
     private int AquascapeId;
     private String Name;
     private int Difficulty;
 
-    public Aquascape(int AquascapeId, String Name, int Difficulty) {
+    public Aquascape(ArrayList<Plant> plantsInAquarium, ArrayList<Fish> fishInAquarium, int AquascapeId, String Name, int Difficulty) {
+        this.plantsInAquarium = plantsInAquarium;
+        this.fishInAquarium = fishInAquarium;
         this.AquascapeId = AquascapeId;
         this.Name = Name;
         this.Difficulty = Difficulty;

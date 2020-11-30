@@ -9,11 +9,19 @@ public class AquascapeGenerator {
         this.fishCollection = fishCollection;
     }
 
+    public AquascapeGenerator() {
+
+    }
+
     public Aquascape generateAquascape() {
         return new Aquascape();
     }
 
-    public boolean tryAddPlant(Plant plant) {
+    public boolean tryAddPlant(Plant plant, Aquascape aquascape) {
+        return true;
+    }
+
+    public boolean tryAddFish(Fish fish, Aquascape aquascape) {
         return true;
     }
 }

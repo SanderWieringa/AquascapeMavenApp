@@ -2,11 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/AquascapeAppTests/FishTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ant.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Repository/IFishCollectionJpaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Repository/IFishCollectionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Repository/IPlantCollectionJpaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Repository/IPlantCollectionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Rest/AquascapeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Services/FishCollectionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Services/PlantCollectionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/java-module.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AquascapeApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AquascapeApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Aquascape/Aquascape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Aquascape/Aquascape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Aquascape/AquascapeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Aquascape/AquascapeGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Aquascape/Fish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Aquascape/Fish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Aquascape/FishCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Aquascape/FishCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Aquascape/Plant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Aquascape/Plant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Aquascape/PlantCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Aquascape/PlantCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AquascapeAppTests/FishTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AquascapeAppTests/FishTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +78,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -73,9 +91,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="MavenRunner">
+    <option name="vmOptions" value="--module-path /path/to/JavaFX/lib --add-modules=javafx.controls" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1kyNQlKqFefdLGjSWcIQae8jIUZ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -85,6 +108,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
@@ -95,7 +119,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../seabattle-start" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Mastermind/MastermindLogic" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -103,11 +128,12 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -155,6 +181,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FishTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AquascapeApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="AquascapeAppTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="AquascapeAppTests" />
+      <option name="MAIN_CLASS_NAME" value="AquascapeAppTests.FishTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FishTests.tryAddFish_SmallHerbivorePlusMediumCarnivore_ShouldReturnFalse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AquascapeApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="AquascapeAppTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="AquascapeAppTests" />
+      <option name="MAIN_CLASS_NAME" value="AquascapeAppTests.FishTests" />
+      <option name="METHOD_NAME" value="tryAddFish_SmallHerbivorePlusMediumCarnivore_ShouldReturnFalse" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -186,6 +251,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.FishTests" />
+        <item itemvalue="JUnit.FishTests.tryAddFish_SmallHerbivorePlusMediumCarnivore_ShouldReturnFalse" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -200,6 +271,11 @@
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1606668861262" duration="101000" />
       <workItem from="1606729830121" duration="3888000" />
+      <workItem from="1606823475163" duration="11341000" />
+      <workItem from="1606913854486" duration="13198000" />
+      <workItem from="1606979257002" duration="1039000" />
+      <workItem from="1606982063310" duration="611000" />
+      <workItem from="1607331391398" duration="631000" />
     </task>
     <servers />
   </component>
@@ -208,24 +284,100 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="179" key="#Project_Structure" timestamp="1606729839514">
+    <state x="552" y="179" key="#Assign_Data_Sources" timestamp="1606925015258">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="552" y="179" key="#Assign_Data_Sources/4.1080.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606925015258" />
+    <state x="424" y="-1199" key="#Project_Structure" timestamp="1606834373252">
+      <screen x="-312" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="424" y="-1199" key="#Project_Structure/0.0.1536.824/-312.-1440.2560.1400@-312.-1440.2560.1400" timestamp="1606834373252" />
     <state x="552" y="179" key="#Project_Structure/4.1080.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606729839514" />
-    <state x="765" y="205" key="#com.intellij.ide.util.MemberChooser" timestamp="1606730992543">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="765" y="205" key="#com.intellij.ide.util.MemberChooser/4.1080.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606730992543" />
-    <state x="400" y="102" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1606668911190">
+    <state x="507" y="216" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606980295086">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="507" y="216" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1606980295086" />
+    <state x="411" y="1181" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1606926467818">
+      <screen x="4" y="1080" width="1536" height="832" />
+    </state>
+    <state x="411" y="1181" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/4.1080.1536.832/0.0.1920.1040@4.1080.1536.832" timestamp="1606926467818" />
+    <state x="612" y="162" key="#com.intellij.ide.util.MemberChooser" timestamp="1606837658615">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="708" y="-1164" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-312.-1440.2560.1400@-312.-1440.2560.1400" timestamp="1606833431194" />
+    <state x="612" y="162" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1606837658615" />
+    <state x="765" y="205" key="#com.intellij.ide.util.MemberChooser/4.1080.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606730992543" />
+    <state x="404" y="1183" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1606926441352">
+      <screen x="4" y="1080" width="1536" height="832" />
+    </state>
     <state x="400" y="102" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1536.824@0.0.1536.824" timestamp="1606668911190" />
-    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1606730807586">
+    <state x="500" y="129" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/4.1080.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606925446905" />
+    <state x="404" y="1183" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/4.1080.1536.832/0.0.1920.1040@4.1080.1536.832" timestamp="1606926441352" />
+    <state x="589" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606836804376">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="670" y="-1440" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824/-312.-1440.2560.1400@-312.-1440.2560.1400" timestamp="1606833281883" />
+    <state x="589" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1606836804376" />
+    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1607344641436">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="276" key="FileChooserDialogImpl/4.1080.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606730807586" />
+    <state x="675" y="-1068" key="FileChooserDialogImpl/0.0.1536.824/-312.-1440.2560.1400@-312.-1440.2560.1400" timestamp="1606834259390" />
+    <state x="740" y="276" key="FileChooserDialogImpl/4.1080.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1607344641436" />
+    <state x="596" y="1301" key="FileChooserDialogImpl/4.1080.1536.832/0.0.1920.1040@4.1080.1536.832" timestamp="1606926302545" />
+    <state width="1493" height="444" key="GridCell.Tab.0.bottom" timestamp="1606980303238">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="2517" height="400" key="GridCell.Tab.0.bottom/0.0.1536.824/-312.-1440.2560.1400@-312.-1440.2560.1400" timestamp="1606826633799" />
+    <state width="1493" height="444" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606980303238" />
+    <state width="1877" height="181" key="GridCell.Tab.0.bottom/4.1080.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606939396769" />
+    <state width="1493" height="181" key="GridCell.Tab.0.bottom/4.1080.1536.832/0.0.1920.1040@4.1080.1536.832" timestamp="1606926740371" />
+    <state width="1493" height="444" key="GridCell.Tab.0.center" timestamp="1606980303237">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="2517" height="400" key="GridCell.Tab.0.center/0.0.1536.824/-312.-1440.2560.1400@-312.-1440.2560.1400" timestamp="1606826633798" />
+    <state width="1493" height="444" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606980303237" />
+    <state width="1877" height="181" key="GridCell.Tab.0.center/4.1080.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606939396769" />
+    <state width="1493" height="181" key="GridCell.Tab.0.center/4.1080.1536.832/0.0.1920.1040@4.1080.1536.832" timestamp="1606926740370" />
+    <state width="1493" height="444" key="GridCell.Tab.0.left" timestamp="1606980303236">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="2517" height="400" key="GridCell.Tab.0.left/0.0.1536.824/-312.-1440.2560.1400@-312.-1440.2560.1400" timestamp="1606826633798" />
+    <state width="1493" height="444" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606980303236" />
+    <state width="1877" height="181" key="GridCell.Tab.0.left/4.1080.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606939396769" />
+    <state width="1493" height="181" key="GridCell.Tab.0.left/4.1080.1536.832/0.0.1920.1040@4.1080.1536.832" timestamp="1606926740370" />
+    <state width="1493" height="444" key="GridCell.Tab.0.right" timestamp="1606980303237">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="2517" height="400" key="GridCell.Tab.0.right/0.0.1536.824/-312.-1440.2560.1400@-312.-1440.2560.1400" timestamp="1606826633798" />
+    <state width="1493" height="444" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606980303237" />
+    <state width="1877" height="181" key="GridCell.Tab.0.right/4.1080.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606939396769" />
+    <state width="1493" height="181" key="GridCell.Tab.0.right/4.1080.1536.832/0.0.1920.1040@4.1080.1536.832" timestamp="1606926740371" />
+    <state x="396" y="1221" key="Maven.ArtifactSearchDialog" timestamp="1606925624476">
+      <screen x="4" y="1080" width="1536" height="832" />
+    </state>
+    <state x="490" y="176" key="Maven.ArtifactSearchDialog/4.1080.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606925228678" />
+    <state x="396" y="1221" key="Maven.ArtifactSearchDialog/4.1080.1536.832/0.0.1920.1040@4.1080.1536.832" timestamp="1606925624476" />
+    <state x="461" y="163" key="SettingsEditor" timestamp="1606928282162">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="163" key="SettingsEditor/4.1080.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606928282162" />
+    <state x="86" y="1065" width="1394" height="815" maximized="true" key="dock-window-1" timestamp="1606926912046">
+      <screen x="4" y="1080" width="1536" height="832" />
+    </state>
+    <state x="86" y="1065" width="1394" height="815" maximized="true" key="dock-window-1/4.1080.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606926912046" />
+    <state x="401" y="1271" key="new project wizard" timestamp="1606926740042">
+      <screen x="4" y="1080" width="1536" height="832" />
+    </state>
+    <state x="350" y="-1119" key="new project wizard/0.0.1536.824/-312.-1440.2560.1400@-312.-1440.2560.1400" timestamp="1606827094101" />
+    <state x="401" y="1271" key="new project wizard/4.1080.1536.832/0.0.1920.1040@4.1080.1536.832" timestamp="1606926740042" />
+    <state x="702" y="262" width="672" height="503" key="search.everywhere.popup" timestamp="1606927989478">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="624" y="-1087" width="672" height="676" key="search.everywhere.popup/0.0.1536.824/-312.-1440.2560.1400@-312.-1440.2560.1400" timestamp="1606826219567" />
+    <state x="702" y="262" width="672" height="503" key="search.everywhere.popup/4.1080.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606927989478" />
   </component>
 </project>

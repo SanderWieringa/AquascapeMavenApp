@@ -1,7 +1,16 @@
 package Aquascape;
 
+import com.sun.istack.NotNull;
+
+import javax.persistence.*;
+
+@Entity
 public class Plant {
+    @Column(unique=true, nullable=false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Id
     private int plantId;
+    @NotNull
     private String plantName;
     private int difficulty;
 

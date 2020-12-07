@@ -1,14 +1,20 @@
 package Aquascape;
 
+import javax.persistence.*;
+
+@Entity
 public class Fish {
+    @Column(unique=true, nullable=false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Id
     private int FishId;
-    private String FIshName;
+    private String FishName;
     private FishType FishType;
     private int FishSize;
 
-    public Fish(int fishId, String FIshName, FishType fishType, int fishSize) {
+    public Fish(int fishId, String FishName, FishType fishType, int fishSize) {
         FishId = fishId;
-        this.FIshName = FIshName;
+        this.FishName = FishName;
         FishType = fishType;
         FishSize = fishSize;
     }
@@ -25,12 +31,12 @@ public class Fish {
         FishId = fishId;
     }
 
-    public String getFIshName() {
-        return FIshName;
+    public String getFishName() {
+        return FishName;
     }
 
-    public void setFIshName(String FIshName) {
-        this.FIshName = FIshName;
+    public void setFishName(String FishName) {
+        this.FishName = FishName;
     }
 
     public FishType getFishType() {

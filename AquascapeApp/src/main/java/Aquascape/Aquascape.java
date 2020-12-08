@@ -1,6 +1,6 @@
 package Aquascape;
 
-import com.sun.istack.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
 import java.util.ArrayList;

@@ -1,6 +1,5 @@
 package Aquascape;
 
-import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 
@@ -10,7 +9,6 @@ public class Plant {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
     private int plantId;
-    @NotNull
     private String plantName;
     private int difficulty;
 

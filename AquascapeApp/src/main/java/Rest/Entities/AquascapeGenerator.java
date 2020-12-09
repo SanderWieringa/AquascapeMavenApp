@@ -1,9 +1,7 @@
-package Aquascape;
+package Rest.Entities;
 
-import Repository.IFishCollectionRepository;
-import Repository.IPlantCollectionRepository;
-import Services.FishCollectionService;
-import Services.PlantCollectionService;
+import Rest.Services.FishCollectionService;
+import Rest.Services.PlantCollectionService;
 import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -1,4 +1,4 @@
-package Aquascape;
+package Rest.Entities;
 
 public enum FishType {
     CARNIVORE,

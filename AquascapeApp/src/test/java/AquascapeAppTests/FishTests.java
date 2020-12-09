@@ -1,15 +1,12 @@
 package AquascapeAppTests;
 
-import Aquascape.Aquascape;
-import Aquascape.Fish;
-import Aquascape.FishType;
-import Aquascape.Plant;
-import Aquascape.AquascapeGenerator;
+import Rest.Entities.Aquascape;
+import Rest.Entities.Fish;
+import Rest.Entities.FishType;
+import Rest.Entities.AquascapeGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.ArrayList;
 
 public class FishTests {
     private AquascapeGenerator generator;

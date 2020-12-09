@@ -1,8 +1,8 @@
-package Services;
+package Rest.Services;
 
-import Aquascape.Fish;
-import Repository.IFishCollectionJpaRepository;
-import Repository.IFishCollectionRepository;
+import Rest.Entities.Fish;
+import Rest.Repositories.IFishCollectionJpaRepository;
+import Rest.Repositories.IFishCollectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +21,9 @@ public class FishCollectionService {
         fishCollectionRepository.findAll().forEach(fishes::add);
 
         return fishes;
+    }
+
+    public void addFish(Fish fish) {
+        fishCollectionRepository.save(fish);
     }
 }

@@ -1,4 +1,4 @@
-package Aquascape;
+package Rest.Entities;
 
 import org.jetbrains.annotations.NotNull;
 

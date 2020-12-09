@@ -1,11 +1,7 @@
-package Repository;
+package Rest.Repositories;
 
-import Aquascape.Fish;
-import Aquascape.FishType;
-import Aquascape.Plant;
+import Rest.Entities.Fish;
 import org.springframework.data.repository.CrudRepository;
-
-import java.util.Optional;
 
 public interface IFishCollectionRepository extends CrudRepository<Fish, Long> {
 }

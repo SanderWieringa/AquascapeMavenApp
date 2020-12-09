@@ -1,11 +1,6 @@
-package Aquascape;
+package Rest.Entities;
 
-import Repository.IPlantCollectionRepository;
-import org.assertj.core.util.Lists;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Optional;
+import Rest.Repositories.IPlantCollectionRepository;
 
 public class PlantCollection {
     private IPlantCollectionRepository plantCollectionRepository;

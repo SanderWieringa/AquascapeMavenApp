@@ -1,8 +1,6 @@
-package Aquascape;
+package Rest.Entities;
 
-import Repository.IFishCollectionRepository;
-
-import java.util.Optional;
+import Rest.Repositories.IFishCollectionRepository;
 
 public class FishCollection {
     private IFishCollectionRepository fishCollectionRepository;

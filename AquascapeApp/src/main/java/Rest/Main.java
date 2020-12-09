@@ -1,14 +1,18 @@
-package sample;
+package Rest;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.File;
 import java.net.URL;
+import java.util.Collections;
 
+@SpringBootApplication
 public class Main extends Application {
 
     @Override
@@ -22,6 +26,9 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        launch(args);
+        SpringApplication app = new SpringApplication((Main.class));
+        app.setDefaultProperties((Collections.singletonMap("server.port", "3337")));
+        app.run(args);
+        //launch(args);
     }
 }

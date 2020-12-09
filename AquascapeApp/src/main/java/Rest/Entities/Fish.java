@@ -1,4 +1,4 @@
-package Aquascape;
+package Rest.Entities;
 
 import javax.persistence.*;
 
@@ -9,7 +9,7 @@ public class Fish {
     @Id
     private int FishId;
     private String FishName;
-    private FishType FishType;
+    private Rest.Entities.FishType FishType;
     private int FishSize;
 
     public Fish(int fishId, String FishName, FishType fishType, int fishSize) {

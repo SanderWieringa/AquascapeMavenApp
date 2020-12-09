@@ -1,8 +1,8 @@
-package Services;
+package Rest.Services;
 
-import Aquascape.Plant;
-import Repository.IPlantCollectionJpaRepository;
-import Repository.IPlantCollectionRepository;
+import Rest.Entities.Plant;
+import Rest.Repositories.IPlantCollectionJpaRepository;
+import Rest.Repositories.IPlantCollectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +21,9 @@ public class PlantCollectionService {
         plantCollectionRepository.findAll().forEach(plants::add);
 
         return plants;
+    }
+
+    public void addPlant(Plant plant) {
+        plantCollectionRepository.save(plant);
     }
 }

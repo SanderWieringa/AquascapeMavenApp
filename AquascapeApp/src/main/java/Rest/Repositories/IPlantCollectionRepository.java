@@ -1,10 +1,7 @@
-package Repository;
+package Rest.Repositories;
 
-import Aquascape.Plant;
-import Aquascape.PlantCollection;
+import Rest.Entities.Plant;
 import org.springframework.data.repository.CrudRepository;
-
-import java.util.Optional;
 
 public interface IPlantCollectionRepository extends CrudRepository<Plant, Long> {
 

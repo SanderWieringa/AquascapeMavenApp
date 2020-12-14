@@ -5,7 +5,7 @@ public enum FishSize {
     MEDIUM(3),
     LARGE(5);
 
-    private final int size;
+    private int size;
     private FishSize(int size) {
         this.size = size;
     }

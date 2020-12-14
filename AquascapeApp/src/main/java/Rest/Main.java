@@ -26,9 +26,11 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication((Main.class));
+        SpringApplication.run(Main.class, args);
+
+        /*SpringApplication app = new SpringApplication((Main.class));
         app.setDefaultProperties((Collections.singletonMap("server.port", "3337")));
         app.run(args);
-        //launch(args);
+        //launch(args);*/
     }
 }

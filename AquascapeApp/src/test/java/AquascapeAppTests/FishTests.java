@@ -22,8 +22,8 @@ public class FishTests {
     void tryAddFish_SmallHerbivorePlusMediumCarnivore_ShouldReturnFalse() {
         Fish smallherbivore = new Fish(1, "Tetra", FishType.HERBIVORE, 1);
         Fish mediumCarnivore = new Fish(2, "AngelFish", FishType.CARNIVORE, 3);
-
         boolean tryAddSmallHerbivore = generator.tryAddFish(smallherbivore, aquascape);
+
         boolean tryAddMediumCarnivore = generator.tryAddFish(mediumCarnivore, aquascape);
 
         assertTrue(tryAddSmallHerbivore);

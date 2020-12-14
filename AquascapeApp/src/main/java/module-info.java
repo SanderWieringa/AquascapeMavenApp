@@ -9,7 +9,6 @@ module sample {
     requires spring.data.commons;
     requires spring.data.jpa;
     requires org.assertj.core;
-    requires java.persistence;
     requires spring.boot.autoconfigure;
     requires spring.boot;
     opens sample ;

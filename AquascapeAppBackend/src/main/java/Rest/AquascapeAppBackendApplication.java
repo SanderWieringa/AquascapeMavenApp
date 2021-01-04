@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class AquascapeAppBackendApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AquascapeAppBackendApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(AquascapeAppBackendApplication.class, args);
+    }
 
 }

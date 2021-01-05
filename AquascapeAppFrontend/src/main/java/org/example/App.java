@@ -5,12 +5,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -21,6 +20,7 @@ import javafx.stage.Stage;
 public class App extends Application {
     Stage window;
     TableView<Aquascape> table;
+    TextField idInput, nameInput, difficultyInput;
 
     @Override
     public void start(Stage stage) {
@@ -32,19 +32,39 @@ public class App extends Application {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("AquascapeId"));
 
         TableColumn<Aquascape, String> nameColumn = new TableColumn<Aquascape, String>("Name");
-        idColumn.setMinWidth(200);
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        nameColumn.setMinWidth(200);
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
 
         TableColumn<Aquascape, Integer> difficultyColumn = new TableColumn<Aquascape, Integer>("Difficulty");
-        idColumn.setMinWidth(100);
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("Difficulty"));
+        difficultyColumn.setMinWidth(100);
+        difficultyColumn.setCellValueFactory(new PropertyValueFactory<>("Difficulty"));
+
+        idInput = new TextField();
+        idInput.setPromptText("Id");
+        idInput.setMinWidth(100);
+
+        nameInput = new TextField();
+        nameInput.setPromptText("Name");
+
+        difficultyInput = new TextField();
+        difficultyInput.setPromptText("Difficulty");
+
+        Button addButton = new Button("Add");
+        addButton.setOnAction(e -> addButtonClicked());
+        Button deleteButton = new Button("Delete");
+        deleteButton.setOnAction(e -> deleteButtonClicked());
 
         table = new TableView<>();
         table.setItems(getAquascapes());
         table.getColumns().addAll(idColumn, nameColumn, difficultyColumn);
 
+        HBox hBox = new HBox();
+        hBox.setPadding(new Insets(10,10,10,10));
+        hBox.setSpacing(10);
+        hBox.getChildren().addAll(idInput,nameInput,difficultyInput, addButton, deleteButton);
+
         VBox vBox = new VBox();
-        vBox.getChildren().addAll(table);
+        vBox.getChildren().addAll(table, hBox);
 
         Scene scene = new Scene(vBox);
         stage.setScene(scene);
@@ -60,6 +80,25 @@ public class App extends Application {
         stage.show();*/
     }
 
+    public void addButtonClicked() {
+        Aquascape aquascape = new Aquascape();
+        aquascape.setAquascapeId(Integer.parseInt(idInput.getText()));
+        aquascape.setName(nameInput.getText());
+        aquascape.setDifficulty(Integer.parseInt(difficultyInput.getText()));
+
+        table.getItems().add(aquascape);
+        idInput.clear();
+        nameInput.clear();
+        difficultyInput.clear();
+    }
+
+    public void deleteButtonClicked() {
+        ObservableList<Aquascape> aquascapeSelected, allAquascapes;
+        allAquascapes = table.getItems();
+        aquascapeSelected = table.getSelectionModel().getSelectedItems();
+
+        aquascapeSelected.forEach(allAquascapes::remove);
+    }
 
     //controller should get list of aquascapes
     public ObservableList<Aquascape> getAquascapes() {

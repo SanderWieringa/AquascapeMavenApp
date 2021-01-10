@@ -30,7 +30,7 @@ public class AquascapeGenerator
     {
         Aquascape aquascape = new Aquascape(0, "", 0);
         Iterable<Plant> plantsIterable = plantCollectionService.getAllPlants();
-        Iterable<Fish> fishesIterable = fishCollectionService.getAllFish();
+        Iterable<Fish> fishesIterable = fishCollectionService.getAllFishes();
         ArrayList<Plant> plants = Lists.newArrayList(plantsIterable);
         ArrayList<Fish> fishes = Lists.newArrayList(fishesIterable);
 
@@ -81,7 +81,7 @@ public class AquascapeGenerator
         {
             // if there exists a carnivore in the aquascape that is bigger than the herbivore to be added
 
-            if(containsCarnivore(aquascape) && carnivoresInAquascape.stream().anyMatch(f -> f.getFishSize() > fishToAdd.getFishSize()))
+            if(containsCarnivore(aquascape) && carnivoresInAquascape.stream().anyMatch(f -> f.getFishSize().getSize() > fishToAdd.getFishSize().getSize()))
             {
                 return false;
             }
@@ -93,7 +93,7 @@ public class AquascapeGenerator
         if (fishToAdd.getFishType().equals(FishType.OMNIVORE))
         {
             // if there exists a carnivore in the aquascape that is bigger than the omnivore to be added
-            if(containsCarnivore(aquascape) && carnivoresInAquascape.stream().anyMatch(f -> f.getFishSize() > fishToAdd.getFishSize()))
+            if(containsCarnivore(aquascape) && carnivoresInAquascape.stream().anyMatch(f -> f.getFishSize().getSize() > fishToAdd.getFishSize().getSize()))
             {
                 return false;
             }
@@ -118,7 +118,7 @@ public class AquascapeGenerator
 
     private boolean containsFishSize(Fish fishToAdd, Aquascape aquascape)
     {
-        if (aquascape.getFishInAquarium().stream().filter(fish -> fish.getFishSize() < fishToAdd.getFishSize()).findFirst().isPresent())
+        if (aquascape.getFishInAquarium().stream().filter(fish -> fish.getFishSize().getSize() < fishToAdd.getFishSize().getSize()).findFirst().isPresent())
         {
             return false;
         }

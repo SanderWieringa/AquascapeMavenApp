@@ -1,5 +1,6 @@
 package org.example;
 
+import Controllers.AquascapeController;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,18 +15,31 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 /**
  * JavaFX App
  */
 public class App extends Application {
+    Scene scene1, scene2, scene3;
     Stage window;
     TableView<Aquascape> table;
     TextField idInput, nameInput, difficultyInput;
+    AquascapeController aquascapeController = new AquascapeController();
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws IOException {
         window = stage;
         window.setTitle("title");
+
+        Menu fileMenu = new Menu("File");
+
+        fileMenu.getItems().add(new MenuItem("New Project..."));
+        fileMenu.getItems().add(new MenuItem("New Module..."));
+        fileMenu.getItems().add(new MenuItem("Import Project..."));
+
+        MenuBar menuBar = new MenuBar();
+        menuBar.getMenus().addAll(fileMenu);
 
         TableColumn<Aquascape, Integer> idColumn = new TableColumn<Aquascape, Integer>("Id");
         idColumn.setMinWidth(100);
@@ -55,7 +69,7 @@ public class App extends Application {
         deleteButton.setOnAction(e -> deleteButtonClicked());
 
         table = new TableView<>();
-        table.setItems(getAquascapes());
+        table.setItems(aquascapeController.getAquascapes());
         table.getColumns().addAll(idColumn, nameColumn, difficultyColumn);
 
         HBox hBox = new HBox();
@@ -64,10 +78,11 @@ public class App extends Application {
         hBox.getChildren().addAll(idInput,nameInput,difficultyInput, addButton, deleteButton);
 
         VBox vBox = new VBox();
-        vBox.getChildren().addAll(table, hBox);
+        vBox.getChildren().addAll(menuBar, table, hBox);
 
-        Scene scene = new Scene(vBox);
-        stage.setScene(scene);
+        scene1 = new Scene(vBox);
+
+        stage.setScene(scene1);
         stage.show();
 
 
@@ -100,14 +115,13 @@ public class App extends Application {
         aquascapeSelected.forEach(allAquascapes::remove);
     }
 
-    //controller should get list of aquascapes
-    public ObservableList<Aquascape> getAquascapes() {
-        ObservableList<Aquascape> aquascapes = FXCollections.observableArrayList();
-        aquascapes.add(new Aquascape(1, "MyAquascape", 1));
-        aquascapes.add(new Aquascape(2, "second aquascape", 3));
+    public void getById() {
+        Aquascape aquascapeSelected = table.getSelectionModel().getSelectedItem();
 
-        return aquascapes;
     }
+
+    //controller should get list of aquascapes
+
 
     public static void main(String[] args) {
         launch(args);

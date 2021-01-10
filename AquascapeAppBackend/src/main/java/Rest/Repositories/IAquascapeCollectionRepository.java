@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @org.springframework.stereotype.Repository
-public interface IAquascapeCollectionRepository extends CrudRepository<Aquascape, String>
+public interface IAquascapeCollectionRepository extends CrudRepository<Aquascape, Integer>
 {
-    //ArrayList<Aquascape> findAllById(String username);
+    Aquascape findById(int id);
+    //ArrayList<Aquascape> findAllById(int userId);
 }

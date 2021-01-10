@@ -1,13 +1,16 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Aquascape {
+    private ArrayList<Plant> plantsInAquarium;
     private int AquascapeId;
     private String Name;
     private int Difficulty;
 
     public Aquascape() {
+        plantsInAquarium = new ArrayList<>();
         AquascapeId = 0;
         Name = "";
         Difficulty = 0;

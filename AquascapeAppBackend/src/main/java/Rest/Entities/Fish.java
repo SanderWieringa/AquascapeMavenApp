@@ -9,12 +9,12 @@ public class Fish {
     @Id
     private int FishId;
     private String FishName;
-    private Rest.Entities.FishType FishType;
-    private int FishSize;
+    private FishType FishType;
+    private FishSize FishSize;
 
-    public Fish(int fishId, String FishName, FishType fishType, int fishSize) {
+    public Fish(int fishId, String FishName, FishType fishType, FishSize fishSize) {
         FishId = fishId;
-        this.FishName = FishName;
+        FishName = FishName;
         FishType = fishType;
         FishSize = fishSize;
     }
@@ -47,11 +47,11 @@ public class Fish {
         FishType = fishType;
     }
 
-    public int getFishSize() {
+    public FishSize getFishSize() {
         return FishSize;
     }
 
-    public void setFishSize(int fishSize) {
+    public void setFishSize(FishSize fishSize) {
         FishSize = fishSize;
     }
 

@@ -13,12 +13,16 @@ public class AquascapeCollectionService
     @Autowired
     private IAquascapeCollectionRepository aquascapeCollectionRepository;
 
-    /*public ArrayList<Aquascape> getAllAquascapesByUser(String username)
+    /*public ArrayList<Aquascape> getAllAquascapesByUser(int userId)
     {
-        return aquascapeCollectionRepository.findAllById(username);
+        return aquascapeCollectionRepository.findAllById(userId);
     }*/
 
     public void addAquascape(Aquascape aquascape) {
         aquascapeCollectionRepository.save(aquascape);
+    }
+
+    public Aquascape getAquascapeById(int id) {
+        return aquascapeCollectionRepository.findById(id);
     }
 }

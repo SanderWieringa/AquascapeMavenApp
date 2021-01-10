@@ -1,6 +1,8 @@
 package Rest.Controllers;
 
+import Rest.Entities.Aquascape;
 import Rest.Entities.Plant;
+import Rest.Services.AquascapeCollectionService;
 import Rest.Services.PlantCollectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +15,7 @@ import java.util.List;
 public class AquascapeController {
 
     @Autowired
-    private PlantCollectionService plantCollectionService;
+    private AquascapeCollectionService aquascapeCollectionService;
 
     @CrossOrigin
     @RequestMapping(value = "/hello")
@@ -26,11 +28,22 @@ public class AquascapeController {
         }
     }
 
-    @CrossOrigin
-    @RequestMapping(value = "/plants")
-    public ResponseEntity<List<Plant>> getAllItems() {
+    /*@CrossOrigin
+    @RequestMapping(value = "/aquascapes/{id}")
+    public ResponseEntity<List<Aquascape>> getAllAquascapesByUser(int userId) {
         try {
-            return new ResponseEntity<>(plantCollectionService.getAllPlants(), HttpStatus.OK);
+            return new ResponseEntity<>(aquascapeCollectionService.getAllAquascapesByUser(userId), HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }*/
+
+    @CrossOrigin
+    @RequestMapping(value = "/aquascapes/{id}")
+    public ResponseEntity<Aquascape> getAquascapeById(int id) {
+        try {
+            return new ResponseEntity<>(aquascapeCollectionService.getAquascapeById(id), HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -38,10 +51,10 @@ public class AquascapeController {
     }
 
     @CrossOrigin
-    @RequestMapping(method = RequestMethod.POST, value = "/plants")
-    public ResponseEntity addKoffieApparaatItem(@RequestBody Plant plant) {
+    @RequestMapping(method = RequestMethod.POST, value = "/aquascapes")
+    public ResponseEntity addPlant(@RequestBody Aquascape aquascape) {
         try {
-            plantCollectionService.addPlant(plant);
+            aquascapeCollectionService.addAquascape(aquascape);
             return new ResponseEntity(HttpStatus.OK);
         }
         catch (Exception e) {

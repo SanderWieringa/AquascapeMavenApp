@@ -1,5 +1,6 @@
 package Rest.Services;
 
+import Rest.Entities.Aquascape;
 import Rest.Entities.Plant;
 import Rest.Repositories.IPlantCollectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,9 @@ public class PlantCollectionService {
 
     public void addPlant(Plant plant) {
         plantCollectionRepository.save(plant);
+    }
+
+    public Plant getPlantById(int id) {
+        return plantCollectionRepository.findById(id);
     }
 }

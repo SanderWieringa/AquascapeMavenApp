@@ -21,7 +21,7 @@ public class FishController {
     private FishCollectionService fishCollectionService;
 
     @CrossOrigin
-    @RequestMapping(value = "/fishes")
+    @RequestMapping(value = "/fishes", method = RequestMethod.GET)
     public ResponseEntity<List<Fish>> getAllFishes() {
         try {
             return new ResponseEntity<>(fishCollectionService.getAllFishes(), HttpStatus.OK);
@@ -44,7 +44,7 @@ public class FishController {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "/fishes/{id}")
+    @RequestMapping(value = "/fishes/{id}", method = RequestMethod.GET)
     public ResponseEntity<Fish> getFishById(int id) {
         try {
             return new ResponseEntity<>(fishCollectionService.getFishById(id), HttpStatus.OK);

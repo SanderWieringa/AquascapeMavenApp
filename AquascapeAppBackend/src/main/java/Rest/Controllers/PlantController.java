@@ -17,7 +17,7 @@ public class PlantController {
     private PlantCollectionService plantCollectionService;
 
     @CrossOrigin
-    @RequestMapping(value = "/plants")
+    @RequestMapping(value = "/plants", method = RequestMethod.GET)
     public ResponseEntity<List<Plant>> getAllPlants() {
         try {
             return new ResponseEntity<>(plantCollectionService.getAllPlants(), HttpStatus.OK);
@@ -40,7 +40,7 @@ public class PlantController {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "/plants/{id}")
+    @RequestMapping(value = "/plants/{id}", method = RequestMethod.GET)
     public ResponseEntity<Plant> getPlantById(int id) {
         try {
             return new ResponseEntity<>(plantCollectionService.getPlantById(id), HttpStatus.OK);

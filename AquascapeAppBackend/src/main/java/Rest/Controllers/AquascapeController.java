@@ -18,7 +18,7 @@ public class AquascapeController {
     private AquascapeCollectionService aquascapeCollectionService;
 
     @CrossOrigin
-    @RequestMapping(value = "/hello")
+    @RequestMapping( value = "/hello", method = RequestMethod.GET)
     public ResponseEntity<String> sayHi(){
         try {
             return new ResponseEntity<String>("Hi", HttpStatus.OK);
@@ -40,7 +40,7 @@ public class AquascapeController {
     }*/
 
     @CrossOrigin
-    @RequestMapping(value = "/aquascapes/{id}")
+    @RequestMapping(value = "/aquascapes/{id}", method = RequestMethod.GET)
     public ResponseEntity<Aquascape> getAquascapeById(int id) {
         try {
             return new ResponseEntity<>(aquascapeCollectionService.getAquascapeById(id), HttpStatus.OK);

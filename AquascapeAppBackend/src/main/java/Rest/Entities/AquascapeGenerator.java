@@ -56,7 +56,7 @@ public class AquascapeGenerator
 
     public boolean tryAddPlant(Plant plant, Aquascape aquascape)
     {
-        if (aquascape.getFishInAquarium().contains(FishType.HERBIVORE))
+        if (aquascape.getFishInAquarium().stream().anyMatch(fish -> fish.getFishType().equals(FishType.HERBIVORE)))
         {
             return false;
         }
@@ -72,7 +72,7 @@ public class AquascapeGenerator
     {
         if (fishToAdd.getFishType().equals(FishType.CARNIVORE))
         {
-            if ((aquascape.getFishInAquarium().contains(FishType.HERBIVORE) || aquascape.getFishInAquarium().contains(FishType.OMNIVORE)) && containsFishSize(fishToAdd, aquascape))
+            if ((aquascape.getFishInAquarium().stream().anyMatch(fish -> fish.getFishType().equals(FishType.HERBIVORE)) || aquascape.getFishInAquarium().stream().anyMatch(fish -> fish.getFishType().equals(FishType.OMNIVORE))) && containsFishSize(fishToAdd, aquascape))
             {
                 return false;
             }

@@ -12,9 +12,9 @@ public class Fish {
     private FishType FishType;
     private FishSize FishSize;
 
-    public Fish(int fishId, String FishName, FishType fishType, FishSize fishSize) {
+    public Fish(int fishId, String fishName, FishType fishType, FishSize fishSize) {
         FishId = fishId;
-        FishName = FishName;
+        FishName = fishName;
         FishType = fishType;
         FishSize = fishSize;
     }

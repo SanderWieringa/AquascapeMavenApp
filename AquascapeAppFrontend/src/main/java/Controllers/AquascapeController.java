@@ -21,7 +21,7 @@ public class AquascapeController {
     public ObservableList<Aquascape> getAquascapes() throws IOException {
         ObservableList<Aquascape> aquascapes = FXCollections.observableArrayList();
 
-        URL url = new URL("localhost:3337/plants");
+        URL url = new URL("http://localhost:3337/plants");
         URLConnection con = url.openConnection();
         HttpURLConnection http = (HttpURLConnection)con;
         http.setRequestMethod("GET");

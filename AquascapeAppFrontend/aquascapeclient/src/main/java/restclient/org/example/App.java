@@ -1,19 +1,17 @@
-package org.example;
+package restclient.org.example;
 
-import Controllers.AquascapeController;
-import javafx.application.Application;
 import javafx.collections.FXCollections;
+import restclient.controllers.AquascapeController;
+import javafx.application.Application;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import restshared.AquascapeDTO;
 
 import java.io.IOException;
 
@@ -23,7 +21,7 @@ import java.io.IOException;
 public class App extends Application {
     Scene scene1, scene2, scene3;
     Stage window;
-    TableView<Aquascape> table;
+    TableView<AquascapeDTO> table;
     TextField idInput, nameInput, difficultyInput;
     AquascapeController aquascapeController = new AquascapeController();
 
@@ -41,15 +39,15 @@ public class App extends Application {
         MenuBar menuBar = new MenuBar();
         menuBar.getMenus().addAll(fileMenu);
 
-        TableColumn<Aquascape, Integer> idColumn = new TableColumn<Aquascape, Integer>("Id");
+        TableColumn<AquascapeDTO, Integer> idColumn = new TableColumn<AquascapeDTO, Integer>("Id");
         idColumn.setMinWidth(100);
         idColumn.setCellValueFactory(new PropertyValueFactory<>("AquascapeId"));
 
-        TableColumn<Aquascape, String> nameColumn = new TableColumn<Aquascape, String>("Name");
+        TableColumn<AquascapeDTO, String> nameColumn = new TableColumn<AquascapeDTO, String>("Name");
         nameColumn.setMinWidth(200);
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
 
-        TableColumn<Aquascape, Integer> difficultyColumn = new TableColumn<Aquascape, Integer>("Difficulty");
+        TableColumn<AquascapeDTO, Integer> difficultyColumn = new TableColumn<AquascapeDTO, Integer>("Difficulty");
         difficultyColumn.setMinWidth(100);
         difficultyColumn.setCellValueFactory(new PropertyValueFactory<>("Difficulty"));
 
@@ -69,7 +67,7 @@ public class App extends Application {
         deleteButton.setOnAction(e -> deleteButtonClicked());
 
         table = new TableView<>();
-        table.setItems(aquascapeController.getAquascapes());
+        table.setItems(FXCollections.observableList(aquascapeController.getAquascapes()));
         table.getColumns().addAll(idColumn, nameColumn, difficultyColumn);
 
         HBox hBox = new HBox();
@@ -96,7 +94,7 @@ public class App extends Application {
     }
 
     public void addButtonClicked() {
-        Aquascape aquascape = new Aquascape();
+        AquascapeDTO aquascape = new AquascapeDTO();
         aquascape.setAquascapeId(Integer.parseInt(idInput.getText()));
         aquascape.setName(nameInput.getText());
         aquascape.setDifficulty(Integer.parseInt(difficultyInput.getText()));
@@ -108,7 +106,7 @@ public class App extends Application {
     }
 
     public void deleteButtonClicked() {
-        ObservableList<Aquascape> aquascapeSelected, allAquascapes;
+        ObservableList<AquascapeDTO> aquascapeSelected, allAquascapes;
         allAquascapes = table.getItems();
         aquascapeSelected = table.getSelectionModel().getSelectedItems();
 
@@ -116,7 +114,7 @@ public class App extends Application {
     }
 
     public void getById() {
-        Aquascape aquascapeSelected = table.getSelectionModel().getSelectedItem();
+        AquascapeDTO aquascapeSelected = table.getSelectionModel().getSelectedItem();
 
     }
 

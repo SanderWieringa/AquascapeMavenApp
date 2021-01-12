@@ -14,23 +14,35 @@ import javax.net.ssl.SSLContext;
 import java.io.IOException;
 import java.net.*;
 
-public class AquascapeController {
+public class AquascapeController{
 
-    private SSLContexts HttpClients;
-
-    public ObservableList<Aquascape> getAquascapes() throws IOException {
+    public ObservableList<Aquascape> getAquascapes() {
         ObservableList<Aquascape> aquascapes = FXCollections.observableArrayList();
 
-        URL url = new URL("http://localhost:3337/plants");
+
+
+        /*HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBUilder()
+                .uri(URI.create("http://localhost:3337/plants")
+                .build());
+
+        HttpResponse<String> response = client.send(request, HttpResponse.bodyHandlers.ofString());
+
+        System.out.println(response.body());*/
+
+
+        /*URL url = new URL("http://localhost:3337/plants");
         URLConnection con = url.openConnection();
         HttpURLConnection http = (HttpURLConnection)con;
         http.setRequestMethod("GET");
-        http.setDoOutput(true);
+        http.setDoOutput(true);*/
+
 
         /*SSLContext httpclient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet("localhost:3337/plants");
 
         CloseableHttpResponse response = httpclients.execute(httpGet);*/
+
 
         /*URI uri = new URIBuilder()
                 .setScheme("http")
@@ -40,9 +52,12 @@ public class AquascapeController {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet("http://localhost:3337/aquascapes");
         CloseableHttpResponse response = httpClient.execute(httpGet);*/
+
+
         aquascapes.add(new Aquascape(1, "MyAquascape", 1));
         aquascapes.add(new Aquascape(2, "second aquascape", 3));
 
         return aquascapes;
     }
+
 }

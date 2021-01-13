@@ -1,13 +1,12 @@
-package restshared;
+package org.example;
 
-
-public class FishDTO {
+public class Fish {
     private int FishId;
     private String FishName;
     private FishType FishType;
     private FishSize FishSize;
 
-    public FishDTO(int fishId, String fishName, FishType fishType, FishSize fishSize) {
+    public Fish(int fishId, String fishName, org.example.FishType fishType, org.example.FishSize fishSize) {
         FishId = fishId;
         FishName = fishName;
         FishType = fishType;

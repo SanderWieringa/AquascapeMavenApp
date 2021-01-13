@@ -9,7 +9,6 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import rest.controllers.AquascapeRESTService;
 import restshared.AquascapeDTO;
 import restshared.AquascapeResponse;
 import org.slf4j.LoggerFactory;
@@ -22,7 +21,7 @@ public class AquascapeController{
 
     private final String url = "http://localhost:3337/aquascape";
 
-    private static final Logger log = (Logger) LoggerFactory.getLogger(AquascapeRESTService.class);
+    //private static final Logger log = LoggerFactory.getLogger();
 
     private final Gson gson = new Gson();
 
@@ -34,7 +33,7 @@ public class AquascapeController{
 
     private AquascapeResponse executeQueryGet(String queryGet) {
         final String query = url + queryGet;
-        log.info("[Query Get] : " + query);
+        //log.info("[Query Get] : " + query);
 
         HttpGet httpGet = new HttpGet(query);
         return executeHttpUriRequest(httpGet);
@@ -43,21 +42,21 @@ public class AquascapeController{
     private AquascapeResponse executeHttpUriRequest(HttpUriRequest httpUriRequest) {
         try(CloseableHttpClient httpClient = HttpClients.createDefault();
         CloseableHttpResponse response = httpClient.execute(httpUriRequest)){
-            log.info("[Status Line] : " + response.getStatusLine());
+            //log.info("[Status Line] : " + response.getStatusLine());
             HttpEntity entity = response.getEntity();
             final String entityString = EntityUtils.toString(entity);
-            log.info("[Entity] : " + entityString);
+            //log.info("[Entity] : " + entityString);
             AquascapeResponse aquascapeReponse = gson.fromJson(entityString, AquascapeResponse.class);
             return aquascapeReponse;
         }
         catch (IOException e) {
-            log.info("IOException : " + e.toString());
+            //log.info("IOException : " + e.toString());
             AquascapeResponse aquascapeResponse = new AquascapeResponse();
             aquascapeResponse.setSuccess(false);
             return aquascapeResponse;
         }
         catch (JsonSyntaxException e) {
-            log.info("JsonSyntaxException : " + e.toString());
+            //log.info("JsonSyntaxException : " + e.toString());
             AquascapeResponse aquascapeResponse = new AquascapeResponse();
             aquascapeResponse.setSuccess(false);
             return aquascapeResponse;

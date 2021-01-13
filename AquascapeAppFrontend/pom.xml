@@ -10,11 +10,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
         <module>aquascapeclient</module>
+<<<<<<< HEAD
         <module>aquascapeserver</module>
 =======
 >>>>>>> parent of b233cd9... client and server modules. aquascapeResponse. server module to be added
 =======
 >>>>>>> parent of b233cd9... client and server modules. aquascapeResponse. server module to be added
+=======
+>>>>>>> parent of af32d3a... issues issues
     </modules>
 =======
 >>>>>>> parent of bb616c9... restshared

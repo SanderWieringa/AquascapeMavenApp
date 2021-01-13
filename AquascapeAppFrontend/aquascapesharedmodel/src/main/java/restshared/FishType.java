@@ -1,4 +1,4 @@
-package org.example;
+package restshared;
 
 public enum FishType {
     CARNIVORE,

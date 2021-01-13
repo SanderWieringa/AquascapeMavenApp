@@ -1,22 +1,19 @@
-package org.example;
+package restshared;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class Aquascape {
-    private ArrayList<Plant> plantsInAquarium;
+public class AquascapeDTO {
+    private ArrayList<PlantDTO> plantsInAquarium;
     private int AquascapeId;
     private String Name;
     private int Difficulty;
 
-    public Aquascape() {
-        plantsInAquarium = new ArrayList<>();
-        AquascapeId = 0;
-        Name = "";
-        Difficulty = 0;
+    public AquascapeDTO() {
+
     }
 
-    public Aquascape(int aquascapeId, String name, int difficulty) {
+    public AquascapeDTO(int aquascapeId, String name, int difficulty) {
+        plantsInAquarium = new ArrayList<>();
         AquascapeId = aquascapeId;
         Name = name;
         Difficulty = difficulty;

@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.net.*;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class AquascapeController {
 
     private SSLContexts HttpClients;
@@ -28,6 +29,8 @@ public class AquascapeController {
         http.setRequestMethod("GET");
         http.setDoOutput(true);
 =======
+=======
+>>>>>>> parent of b233cd9... client and server modules. aquascapeResponse. server module to be added
 public class AquascapeController{
 
     public ObservableList<Aquascape> getAquascapes() {
@@ -51,6 +54,9 @@ public class AquascapeController{
         http.setRequestMethod("GET");
         http.setDoOutput(true);*/
 
+<<<<<<< HEAD
+>>>>>>> parent of b233cd9... client and server modules. aquascapeResponse. server module to be added
+=======
 >>>>>>> parent of b233cd9... client and server modules. aquascapeResponse. server module to be added
 
         /*SSLContext httpclient = HttpClients.createDefault();
@@ -59,6 +65,10 @@ public class AquascapeController{
         CloseableHttpResponse response = httpclients.execute(httpGet);*/
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of b233cd9... client and server modules. aquascapeResponse. server module to be added
 =======
 
 >>>>>>> parent of b233cd9... client and server modules. aquascapeResponse. server module to be added
@@ -71,6 +81,11 @@ public class AquascapeController{
         HttpGet httpGet = new HttpGet("http://localhost:3337/aquascapes");
         CloseableHttpResponse response = httpClient.execute(httpGet);*/
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> parent of b233cd9... client and server modules. aquascapeResponse. server module to be added
 =======
 
 
@@ -81,6 +96,10 @@ public class AquascapeController{
         return aquascapes;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of b233cd9... client and server modules. aquascapeResponse. server module to be added
 =======
 
 >>>>>>> parent of b233cd9... client and server modules. aquascapeResponse. server module to be added

@@ -8,8 +8,11 @@
     <modules>
         <module>aquascapesharedmodel</module>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <module>aquascapeclient</module>
         <module>aquascapeserver</module>
+=======
+>>>>>>> parent of b233cd9... client and server modules. aquascapeResponse. server module to be added
 =======
 >>>>>>> parent of b233cd9... client and server modules. aquascapeResponse. server module to be added
     </modules>

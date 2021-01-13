@@ -28,7 +28,7 @@ public class App extends Application {
     AquascapeController aquascapeController = new AquascapeController();
 
     @Override
-    public void start(Stage stage) throws IOException, InterruptedException {
+    public void start(Stage stage) throws IOException {
         window = stage;
         window.setTitle("title");
 

@@ -3,8 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.example</groupId>
     <artifactId>AquascapeAppFrontend</artifactId>
-    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+<<<<<<< HEAD
     <modules>
         <module>aquascapesharedmodel</module>
 <<<<<<< HEAD
@@ -16,6 +16,8 @@
 =======
 >>>>>>> parent of b233cd9... client and server modules. aquascapeResponse. server module to be added
     </modules>
+=======
+>>>>>>> parent of bb616c9... restshared
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>

@@ -1,4 +1,4 @@
-package example;
+package org.example;
 
 public class SystemInfo {
     public static String javaVersion() {

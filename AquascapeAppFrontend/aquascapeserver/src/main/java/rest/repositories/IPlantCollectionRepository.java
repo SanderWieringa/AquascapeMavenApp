@@ -1,9 +1,8 @@
-package Rest.Repositories;
+package rest.repositories;
 
-import Rest.Entities.Aquascape;
-import Rest.Entities.Plant;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import rest.entities.Plant;
+import org.springframework.data.repository.CrudRepository;
 
 @Repository
 public interface IPlantCollectionRepository extends CrudRepository<Plant, Integer>

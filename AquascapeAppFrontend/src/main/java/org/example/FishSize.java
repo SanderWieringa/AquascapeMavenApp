@@ -1,4 +1,4 @@
-package restshared;
+package org.example;
 
 public enum FishSize {
     SMALL(1),

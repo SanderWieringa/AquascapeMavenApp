@@ -1,4 +1,4 @@
-package restclient.org.example;
+package org.example;
 
 public class SystemInfo {
 

@@ -14,6 +14,7 @@ import javax.net.ssl.SSLContext;
 import java.io.IOException;
 import java.net.*;
 
+<<<<<<< HEAD
 public class AquascapeController {
 
     private SSLContexts HttpClients;
@@ -26,12 +27,41 @@ public class AquascapeController {
         HttpURLConnection http = (HttpURLConnection)con;
         http.setRequestMethod("GET");
         http.setDoOutput(true);
+=======
+public class AquascapeController{
+
+    public ObservableList<Aquascape> getAquascapes() {
+        ObservableList<Aquascape> aquascapes = FXCollections.observableArrayList();
+
+
+
+        /*HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBUilder()
+                .uri(URI.create("http://localhost:3337/plants")
+                .build());
+
+        HttpResponse<String> response = client.send(request, HttpResponse.bodyHandlers.ofString());
+
+        System.out.println(response.body());*/
+
+
+        /*URL url = new URL("http://localhost:3337/plants");
+        URLConnection con = url.openConnection();
+        HttpURLConnection http = (HttpURLConnection)con;
+        http.setRequestMethod("GET");
+        http.setDoOutput(true);*/
+
+>>>>>>> parent of b233cd9... client and server modules. aquascapeResponse. server module to be added
 
         /*SSLContext httpclient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet("localhost:3337/plants");
 
         CloseableHttpResponse response = httpclients.execute(httpGet);*/
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of b233cd9... client and server modules. aquascapeResponse. server module to be added
         /*URI uri = new URIBuilder()
                 .setScheme("http")
                 .setHost("localhost:3337")
@@ -40,9 +70,18 @@ public class AquascapeController {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet("http://localhost:3337/aquascapes");
         CloseableHttpResponse response = httpClient.execute(httpGet);*/
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> parent of b233cd9... client and server modules. aquascapeResponse. server module to be added
         aquascapes.add(new Aquascape(1, "MyAquascape", 1));
         aquascapes.add(new Aquascape(2, "second aquascape", 3));
 
         return aquascapes;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of b233cd9... client and server modules. aquascapeResponse. server module to be added
 }

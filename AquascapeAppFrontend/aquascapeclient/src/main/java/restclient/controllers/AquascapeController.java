@@ -18,14 +18,14 @@ import java.io.IOException;
 import java.util.List;
 
 public class AquascapeController {
-    private final String url = "http://localhost:3337/aquascape";
+    private final String url = "http://localhost:3337";
 
     //private static final Logger log = LoggerFactory.getLogger();
 
     private final Gson gson = new Gson();
 
     public List<AquascapeDTO> getAquascapes() {
-        String queryGet = "/aquascape/all";
+        String queryGet = "/aquascapes";
         AquascapeResponse response = executeQueryGet(queryGet);
         return response.getAquascapes();
     }

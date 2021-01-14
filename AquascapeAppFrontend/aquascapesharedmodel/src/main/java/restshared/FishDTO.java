@@ -12,4 +12,36 @@ public class FishDTO {
         FishType = fishType;
         FishSize = fishSize;
     }
+
+    public int getFishId() {
+        return FishId;
+    }
+
+    public void setFishId(int fishId) {
+        FishId = fishId;
+    }
+
+    public String getFishName() {
+        return FishName;
+    }
+
+    public void setFishName(String fishName) {
+        FishName = fishName;
+    }
+
+    public FishType getFishType() {
+        return FishType;
+    }
+
+    public void setFishType(FishType fishType) {
+        FishType = fishType;
+    }
+
+    public FishSize getFishSize() {
+        return FishSize;
+    }
+
+    public void setFishSize(FishSize fishSize) {
+        FishSize = fishSize;
+    }
 }

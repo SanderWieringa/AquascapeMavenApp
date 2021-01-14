@@ -1,7 +1,6 @@
 package Rest.Services;
 
 import Rest.Entities.Fish;
-import Rest.Entities.Plant;
 import Rest.Repositories.IFishCollectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

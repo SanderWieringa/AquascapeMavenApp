@@ -7,8 +7,6 @@ public class AquascapeResponse {
 
     private List<AquascapeDTO> aquascapes;
 
-
-
     public boolean isSuccess() {
         return success;
     }

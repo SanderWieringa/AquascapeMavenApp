@@ -9,12 +9,12 @@ public class Fish {
     @Id
     private int FishId;
     private String FishName;
-    private FishType FishType;
-    private FishSize FishSize;
+    private Rest.Entities.FishType FishType;
+    private Rest.Entities.FishSize FishSize;
 
-    public Fish(int fishId, String FishName, FishType fishType, FishSize fishSize) {
+    public Fish(int fishId, String fishName, Rest.Entities.FishType fishType, Rest.Entities.FishSize fishSize) {
         FishId = fishId;
-        FishName = FishName;
+        FishName = fishName;
         FishType = fishType;
         FishSize = fishSize;
     }
@@ -39,23 +39,19 @@ public class Fish {
         this.FishName = FishName;
     }
 
-    public FishType getFishType() {
+    public Rest.Entities.FishType getFishType() {
         return FishType;
     }
 
-    public void setFishType(FishType fishType) {
+    public void setFishType(Rest.Entities.FishType fishType) {
         FishType = fishType;
     }
 
-    public FishSize getFishSize() {
+    public Rest.Entities.FishSize getFishSize() {
         return FishSize;
     }
 
-    public void setFishSize(FishSize fishSize) {
+    public void setFishSize(Rest.Entities.FishSize fishSize) {
         FishSize = fishSize;
     }
-
-
-
-
 }

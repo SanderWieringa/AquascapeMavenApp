@@ -1,7 +1,6 @@
 package Rest.Controllers;
 
 import Rest.Entities.Fish;
-import Rest.Entities.Plant;
 import Rest.Services.FishCollectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

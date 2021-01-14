@@ -1,6 +1,5 @@
 package Rest.Controllers;
 
-import Rest.Entities.Aquascape;
 import Rest.Entities.Plant;
 import Rest.Services.PlantCollectionService;
 import org.springframework.beans.factory.annotation.Autowired;

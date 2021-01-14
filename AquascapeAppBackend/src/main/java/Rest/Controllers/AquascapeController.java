@@ -1,9 +1,14 @@
 package Rest.Controllers;
 
 import Rest.Entities.Aquascape;
-import Rest.Entities.Plant;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import Rest.Entities.Fish;
 import Rest.Services.AquascapeCollectionService;
-import Rest.Services.PlantCollectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +30,20 @@ public class AquascapeController {
         }
         catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.I_AM_A_TEAPOT);
+        }
+    }
+
+    /*@GET
+    @Path("/aquascapes")
+    @Produces(MediaType.APPLICATION_JSON)*/
+    @CrossOrigin
+    @RequestMapping(value = "/aquascapes")
+    public ResponseEntity<List<Aquascape>> getAllAquascpaes() {
+        try {
+            return new ResponseEntity<>(aquascapeCollectionService.getAllAquascapes(), HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 

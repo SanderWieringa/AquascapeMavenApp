@@ -22,7 +22,6 @@ public class AquascapeController {
     @Autowired
     private AquascapeCollectionService aquascapeCollectionService;
 
-    @CrossOrigin
     @RequestMapping(value = "/hello")
     public ResponseEntity<String> sayHi(){
         try {
@@ -36,7 +35,6 @@ public class AquascapeController {
     /*@GET
     @Path("/aquascapes")
     @Produces(MediaType.APPLICATION_JSON)*/
-    @CrossOrigin
     @RequestMapping(value = "/aquascapes")
     public ResponseEntity<List<Aquascape>> getAllAquascpaes() {
         try {
@@ -47,7 +45,7 @@ public class AquascapeController {
         }
     }
 
-    /*@CrossOrigin
+    /*
     @RequestMapping(value = "/aquascapes/{id}")
     public ResponseEntity<List<Aquascape>> getAllAquascapesByUser(int userId) {
         try {
@@ -58,18 +56,16 @@ public class AquascapeController {
         }
     }*/
 
-    @CrossOrigin
     @RequestMapping(value = "/aquascapes/{id}")
-    public ResponseEntity<Aquascape> getAquascapeById(int id) {
+    public ResponseEntity<Aquascape> getAquascapeById(@PathVariable String id) {
         try {
-            return new ResponseEntity<>(aquascapeCollectionService.getAquascapeById(id), HttpStatus.OK);
+            return new ResponseEntity<>(aquascapeCollectionService.getAquascapeById(Integer.parseInt(id)), HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
-    @CrossOrigin
     @RequestMapping(method = RequestMethod.POST, value = "/aquascapes")
     public ResponseEntity addPlant(@RequestBody Aquascape aquascape) {
         try {

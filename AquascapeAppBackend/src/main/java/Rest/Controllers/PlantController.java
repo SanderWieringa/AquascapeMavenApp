@@ -15,7 +15,6 @@ public class PlantController {
     @Autowired
     private PlantCollectionService plantCollectionService;
 
-    @CrossOrigin
     @RequestMapping(value = "/plants")
     public ResponseEntity<List<Plant>> getAllPlants() {
         try {
@@ -26,7 +25,6 @@ public class PlantController {
         }
     }
 
-    @CrossOrigin
     @RequestMapping(method = RequestMethod.POST, value = "/plants")
     public ResponseEntity addPlant(@RequestBody Plant plant) {
         try {
@@ -38,11 +36,10 @@ public class PlantController {
         }
     }
 
-    @CrossOrigin
     @RequestMapping(value = "/plants/{id}")
-    public ResponseEntity<Plant> getPlantById(int id) {
+    public ResponseEntity<Plant> getPlantById(@PathVariable String id) {
         try {
-            return new ResponseEntity<>(plantCollectionService.getPlantById(id), HttpStatus.OK);
+            return new ResponseEntity<>(plantCollectionService.getPlantById(Integer.parseInt(id)), HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

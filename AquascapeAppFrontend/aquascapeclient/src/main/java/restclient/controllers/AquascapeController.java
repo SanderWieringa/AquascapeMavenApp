@@ -32,7 +32,7 @@ public class AquascapeController {
 
     private AquascapeResponse executeQueryGet(String queryGet) {
         final String query = url + queryGet;
-        //log.info("[Query Get] : " + query);
+        System.out.println("[Query Get] : " + query);
 
         HttpGet httpGet = new HttpGet(query);
         return executeHttpUriRequest(httpGet);
@@ -41,21 +41,21 @@ public class AquascapeController {
     private AquascapeResponse executeHttpUriRequest(HttpUriRequest httpUriRequest) {
         try(CloseableHttpClient httpClient = HttpClients.createDefault();
             CloseableHttpResponse response = httpClient.execute(httpUriRequest)){
-            //log.info("[Status Line] : " + response.getStatusLine());
+            System.out.println("[Status Line] : " + response.getStatusLine());
             HttpEntity entity = response.getEntity();
             final String entityString = EntityUtils.toString(entity);
-            //log.info("[Entity] : " + entityString);
+            System.out.println("[Entity] : " + entityString);
             AquascapeResponse aquascapeReponse = gson.fromJson(entityString, AquascapeResponse.class);
             return aquascapeReponse;
         }
         catch (IOException e) {
-            //log.info("IOException : " + e.toString());
+            System.out.println("IOException : " + e.toString());
             AquascapeResponse aquascapeResponse = new AquascapeResponse();
             aquascapeResponse.setSuccess(false);
             return aquascapeResponse;
         }
         catch (JsonSyntaxException e) {
-            //log.info("JsonSyntaxException : " + e.toString());
+            System.out.println("JsonSyntaxException : " + e.toString());
             AquascapeResponse aquascapeResponse = new AquascapeResponse();
             aquascapeResponse.setSuccess(false);
             return aquascapeResponse;

@@ -38,8 +38,11 @@ public class App extends Application {
         Button buttonLogin = new Button("Login");
         buttonLogin.setOnAction(e -> loginButtonClicked());
 
+        VBox vBoxLogin = new VBox(20);
+        vBoxLogin.getChildren().addAll(nameInput, passwordInput, buttonLogin);
+        sceneLogin = new Scene(vBoxLogin);
 
-
+        // Layout aquascapes
         window = stage;
         window.setTitle("title");
 
@@ -93,7 +96,7 @@ public class App extends Application {
 
         scene2 = new Scene(vBox);
 
-        stage.setScene(scene2);
+        stage.setScene(sceneLogin);
         stage.show();
 
 

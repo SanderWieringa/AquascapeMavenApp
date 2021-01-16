@@ -1,5 +1,6 @@
 package Rest.util;
 
+import Rest.Entities.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -42,10 +43,10 @@ public class JwtUtil
         return extractExpiration(token).before(new Date());
     }
 
-    public String generateToken(UserDetails userDetails)
+    public String generateToken(User user)
     {
         Map<String, Object> claims = new HashMap<>();
-        return createToken(claims, userDetails.getUsername());
+        return createToken(claims, user.getUserName());
     }
 
     private String createToken(Map<String, Object> claims, String subject)

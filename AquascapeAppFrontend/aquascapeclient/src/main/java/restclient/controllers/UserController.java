@@ -24,7 +24,7 @@ import java.util.logging.Logger;
 
 public class UserController {
 
-    private final String url = "localhost:3337";
+    private final String url = "http://localhost:3337";
 
     private final int NOTDEFINED = -1;
 
@@ -35,6 +35,7 @@ public class UserController {
     UserMessage message;
 
     public UserDTO login(String userName, String password) {
+        message = UserMessage.LOGIN;
         UserDTO userRequest = new UserDTO(userName, password);
         String queryPost = "/authenticate";
         UserResponse response = executeQueryPost(userRequest, queryPost);
@@ -43,7 +44,7 @@ public class UserController {
 
     private UserResponse executeQueryPost(UserDTO userRequest, String queryPost) {
         final String query = url + queryPost;
-        //log.info("[Query Post] : " + query);
+        System.out.println("[Query Post] : " + query);
 
         HttpPost httpPost = new HttpPost(query);
         httpPost.addHeader("content-type", "application/json");

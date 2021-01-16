@@ -1,24 +1,24 @@
 package restshared;
 
 public class FishDTO {
-    private int FishId;
+    private int fishId;
     private String FishName;
-    private FishType FishType;
-    private FishSize FishSize;
+    private FishType fishType;
+    private FishSize fishSize;
 
     public FishDTO(int fishId, String fishName, FishType fishType, FishSize fishSize) {
-        FishId = fishId;
+        this.fishId = fishId;
         FishName = fishName;
-        FishType = fishType;
-        FishSize = fishSize;
+        this.fishType = fishType;
+        this.fishSize = fishSize;
     }
 
     public int getFishId() {
-        return FishId;
+        return fishId;
     }
 
     public void setFishId(int fishId) {
-        FishId = fishId;
+        this.fishId = fishId;
     }
 
     public String getFishName() {
@@ -30,18 +30,18 @@ public class FishDTO {
     }
 
     public FishType getFishType() {
-        return FishType;
+        return fishType;
     }
 
     public void setFishType(FishType fishType) {
-        FishType = fishType;
+        this.fishType = fishType;
     }
 
     public FishSize getFishSize() {
-        return FishSize;
+        return fishSize;
     }
 
     public void setFishSize(FishSize fishSize) {
-        FishSize = fishSize;
+        this.fishSize = fishSize;
     }
 }

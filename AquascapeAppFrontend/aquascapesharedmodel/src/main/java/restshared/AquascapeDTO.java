@@ -4,44 +4,44 @@ import java.util.ArrayList;
 
 public class AquascapeDTO {
     private ArrayList<PlantDTO> plantsInAquarium;
-    private int AquascapeId;
-    private String Name;
-    private int Difficulty;
+    private int aquascapeId;
+    private String name;
+    private int difficulty;
 
     public AquascapeDTO() {
         plantsInAquarium = new ArrayList<>();
-        AquascapeId = 0;
-        Name = "";
-        Difficulty = 0;
+        aquascapeId = 0;
+        name = "";
+        difficulty = 0;
     }
 
     public AquascapeDTO(int aquascapeId, String name, int difficulty) {
-        AquascapeId = aquascapeId;
-        Name = name;
-        Difficulty = difficulty;
+        this.aquascapeId = aquascapeId;
+        this.name = name;
+        this.difficulty = difficulty;
     }
 
     public int getAquascapeId() {
-        return AquascapeId;
+        return aquascapeId;
     }
 
     public void setAquascapeId(int aquascapeId) {
-        AquascapeId = aquascapeId;
+        this.aquascapeId = aquascapeId;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public int getDifficulty() {
-        return Difficulty;
+        return difficulty;
     }
 
     public void setDifficulty(int difficulty) {
-        Difficulty = difficulty;
+        this.difficulty = difficulty;
     }
 }

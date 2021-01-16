@@ -10,19 +10,36 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import restclient.controllers.AquascapeController;
+import restclient.controllers.UserController;
 import restshared.AquascapeDTO;
 
 import java.io.IOException;
 
 public class App extends Application {
-    Scene scene1, scene2, scene3;
-    Stage window;
+    Scene sceneLogin, scene2, scene3;
+    Stage windowLogin, window;
     TableView<AquascapeDTO> table;
-    TextField idInput, nameInput, difficultyInput;
+    TextField idInput, nameInput, difficultyInput, passwordInput;
     AquascapeController aquascapeController = new AquascapeController();
+    UserController userController = new UserController();
 
     @Override
     public void start(Stage stage) throws IOException {
+
+        // Layout login
+        windowLogin = stage;
+
+        nameInput = new TextField();
+        nameInput.setPromptText("Username");
+
+        passwordInput = new TextField();
+        passwordInput.setPromptText("Password");
+
+        Button buttonLogin = new Button("Login");
+        buttonLogin.setOnAction(e -> loginButtonClicked());
+
+
+
         window = stage;
         window.setTitle("title");
 
@@ -74,9 +91,9 @@ public class App extends Application {
         VBox vBox = new VBox();
         vBox.getChildren().addAll(menuBar, table, hBox);
 
-        scene1 = new Scene(vBox);
+        scene2 = new Scene(vBox);
 
-        stage.setScene(scene1);
+        stage.setScene(scene2);
         stage.show();
 
 
@@ -87,6 +104,12 @@ public class App extends Application {
         var scene = new Scene(new StackPane(label), 640, 480);
         stage.setScene(scene);
         stage.show();*/
+    }
+
+    public void loginButtonClicked() {
+        userController.login(nameInput.getText(), passwordInput.getText());
+        nameInput.clear();
+        passwordInput.clear();
     }
 
     public void addButtonClicked() {

@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class AquascapeController {
-    private final String url = "http://localhost:3337";
+    private final String url = "localhost:3337";
 
     //private static final Logger log = LoggerFactory.getLogger();
 

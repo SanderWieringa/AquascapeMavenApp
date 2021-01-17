@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import restclient.controllers.AquascapeController;
 import restclient.controllers.UserController;
 import restshared.AquascapeDTO;
+import restshared.UserDTO;
 
 import java.io.IOException;
 
@@ -110,9 +111,13 @@ public class App extends Application {
     }
 
     public void loginButtonClicked() {
-        userController.login(nameInput.getText(), passwordInput.getText());
+        UserDTO user = new UserDTO();
+        user.setUserName(nameInput.getText());
+        user.setPassword(passwordInput.getText());
         nameInput.clear();
         passwordInput.clear();
+        userController.login(user);
+
     }
 
     public void addButtonClicked() {

@@ -48,9 +48,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users/{id}")
-    public ResponseEntity<Optional<User>> getUserById(@PathVariable String id) {
+    public ResponseEntity<User> getUserById(@PathVariable String id) {
         try {
-            Optional<User> user = userCollectionService.getById(Integer.parseInt(id));
+            User user = userCollectionService.getById(Integer.parseInt(id));
             /*User user = new User();
             user.setUserName(userDetails.getUsername());
             user.setPassword(userDetails.getPassword());*/
@@ -92,7 +92,9 @@ public class UserController {
             throw new Exception("Incorrect username or password", e);
         }
 
-        final User user = (User) userCollectionService.loadUserByUsername(authenticationRequest.getUsername());
+        org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) userCollectionService.loadUserByUsername(authenticationRequest.getUsername());
+
+        //final User user = /*(User) */userCollectionService.loadUserByUsername(authenticationRequest.getUsername());
 
         final String jwt = jwtTokenUtil.generateToken(user);
 

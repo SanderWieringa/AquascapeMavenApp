@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import javax.security.auth.message.callback.PasswordValidationCallback;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
@@ -49,13 +50,21 @@ public class UserCollectionService implements UserDetailsService
         }
     }
 
-    public Optional<User> getById(int userId) {
-        return userCollectionRepository.findById(userId);
+    public User getById(int userId) {
+        Optional<User> userToConvert = userCollectionRepository.findById(userId);
+        if (userToConvert.isPresent()) {
+            return new User(userToConvert.get().getUserId(), userToConvert.get().getUserName(), userToConvert.get().getPassword());
+        }
+        return  null;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> user = userCollectionRepository.findByUserName(username);
-        return (UserDetails) user.orElse(null);
+        Optional<User> userToConvert = userCollectionRepository.findByUserName(username);
+        if (userToConvert.isPresent()) {
+            return new org.springframework.security.core.userdetails.User(userToConvert.get().getUserName(), userToConvert.get().getPassword(), new ArrayList<>());
+        }
+
+        return null;
     }
 }

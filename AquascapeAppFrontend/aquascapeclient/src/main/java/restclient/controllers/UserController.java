@@ -34,9 +34,9 @@ public class UserController {
 
     UserMessage message;
 
-    public UserDTO login(String userName, String password) {
+    public UserDTO login(UserDTO user) {
         message = UserMessage.LOGIN;
-        UserDTO userRequest = new UserDTO(userName, password);
+        UserDTO userRequest = new UserDTO(user.getUserName(), user.getPassword());
         String queryPost = "/authenticate";
         UserResponse response = executeQueryPost(userRequest, queryPost);
         return response.getUser();

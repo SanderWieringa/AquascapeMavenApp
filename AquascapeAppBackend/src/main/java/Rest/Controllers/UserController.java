@@ -1,9 +1,6 @@
 package Rest.Controllers;
 
-import Rest.Entities.Plant;
 import Rest.Entities.User;
-import Rest.Repositories.IAquascapeCollectionRepository;
-import Rest.Services.AquascapeCollectionService;
 import Rest.Services.MyUserDetailsService;
 import Rest.Services.UserCollectionService;
 import Rest.models.AuthenticationRequest;
@@ -14,12 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @Controller
 public class UserController {
@@ -46,6 +39,18 @@ public class UserController {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
+
+    /*@RequestMapping(value = "/users/{id}/aquascapes")
+    public ResponseEntity<ArrayList<Aquascape>> getAquascapesByUser(@PathVariable String id) {
+        try {
+            ArrayList<Aquascape> aquascapes = userCollectionService.getAllAquascapesByUser(Integer.parseInt(id));
+
+            return new ResponseEntity<>(aquascapes, HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }*/
 
     @RequestMapping(value = "/users/{id}")
     public ResponseEntity<User> getUserById(@PathVariable String id) {
@@ -92,7 +97,7 @@ public class UserController {
             throw new Exception("Incorrect username or password", e);
         }
 
-        org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) userCollectionService.loadUserByUsername(authenticationRequest.getUsername());
+        org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) userCollectionService.loadUserByUsername(authenticationRequest.getUserName());
 
         //final User user = /*(User) */userCollectionService.loadUserByUsername(authenticationRequest.getUsername());
 

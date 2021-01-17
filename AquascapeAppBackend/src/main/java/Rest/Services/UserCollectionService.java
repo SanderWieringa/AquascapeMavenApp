@@ -1,6 +1,7 @@
 package Rest.Services;
 
 import Rest.Entities.User;
+import Rest.Repositories.IAquascapeCollectionRepository;
 import Rest.Repositories.IUserCollectionRepository;
 import Rest.models.AuthenticationRequest;
 import Rest.util.PasswordHasher;
@@ -11,7 +12,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import javax.security.auth.message.callback.PasswordValidationCallback;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
@@ -24,17 +24,25 @@ public class UserCollectionService implements UserDetailsService
     @Autowired
     private IUserCollectionRepository userCollectionRepository;
 
+    @Autowired
+    private IAquascapeCollectionRepository aquascapeCollectionRepository;
+
     /*public User getUserByName(String username)
     {
         Optional<User> user = userCollectionRepository.findByUserName(username);
         return user.orElse(null);
     }*/
 
+    /*public ArrayList<Aquascape> getAllAquascapesByUser(int userId)
+    {
+        return userCollectionRepository.findAllById(userId);
+    }*/
+
     public User login(AuthenticationRequest authenticationRequest) throws InvalidKeySpecException, NoSuchAlgorithmException {
         User user = new User();
 
-        if (PasswordValidator.validatePassword(authenticationRequest.getPassword(), userCollectionRepository.findByUserName(authenticationRequest.getUsername()).get().getPassword())) {
-            user.setUserName(authenticationRequest.getUsername());
+        if (PasswordValidator.validatePassword(authenticationRequest.getPassword(), userCollectionRepository.findByUserName(authenticationRequest.getUserName()).get().getPassword())) {
+            user.setUserName(authenticationRequest.getUserName());
             user.setPassword(authenticationRequest.getPassword());
             return user;
         }

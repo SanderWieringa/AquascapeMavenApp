@@ -34,6 +34,8 @@ public class UserController {
 
     UserMessage message;
 
+    UserResponse userResponse;
+
     public UserDTO login(UserDTO user) {
         message = UserMessage.LOGIN;
         UserDTO userRequest = new UserDTO(user.getUserName(), user.getPassword());
@@ -59,7 +61,7 @@ public class UserController {
     }
 
     private UserResponse executeHttpUriRequest(HttpUriRequest httpUriRequest) {
-        UserResponse userResponse = null;
+
         try (CloseableHttpClient httpClient = HttpClients.createDefault();
              CloseableHttpResponse response = httpClient.execute(httpUriRequest)) {
             System.out.println("[Status Line] : " + response.getStatusLine());

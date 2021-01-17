@@ -20,7 +20,7 @@ public class App extends Application {
     Scene sceneLogin, scene2, scene3;
     Stage windowLogin, window;
     TableView<AquascapeDTO> table;
-    TextField idInput, nameInput, difficultyInput, passwordInput;
+    TextField idInput, userNameInput, aquascapeNameInput, difficultyInput, passwordInput;
     AquascapeController aquascapeController = new AquascapeController();
     UserController userController = new UserController();
 
@@ -30,8 +30,8 @@ public class App extends Application {
         // Layout login
         windowLogin = stage;
 
-        nameInput = new TextField();
-        nameInput.setPromptText("Username");
+        userNameInput = new TextField();
+        userNameInput.setPromptText("Username");
 
         passwordInput = new TextField();
         passwordInput.setPromptText("Password");
@@ -40,7 +40,7 @@ public class App extends Application {
         buttonLogin.setOnAction(e -> loginButtonClicked());
 
         VBox vBoxLogin = new VBox(20);
-        vBoxLogin.getChildren().addAll(nameInput, passwordInput, buttonLogin);
+        vBoxLogin.getChildren().addAll(userNameInput, passwordInput, buttonLogin);
         sceneLogin = new Scene(vBoxLogin);
 
         // Layout aquascapes
@@ -72,8 +72,8 @@ public class App extends Application {
         idInput.setPromptText("Id");
         idInput.setMinWidth(100);
 
-        nameInput = new TextField();
-        nameInput.setPromptText("Name");
+        aquascapeNameInput = new TextField();
+        aquascapeNameInput.setPromptText("Name");
 
         difficultyInput = new TextField();
         difficultyInput.setPromptText("Difficulty");
@@ -90,7 +90,7 @@ public class App extends Application {
         HBox hBox = new HBox();
         hBox.setPadding(new Insets(10,10,10,10));
         hBox.setSpacing(10);
-        hBox.getChildren().addAll(idInput,nameInput,difficultyInput, addButton, deleteButton);
+        hBox.getChildren().addAll(idInput,aquascapeNameInput,difficultyInput, addButton, deleteButton);
 
         VBox vBox = new VBox();
         vBox.getChildren().addAll(menuBar, table, hBox);
@@ -112,10 +112,10 @@ public class App extends Application {
 
     public void loginButtonClicked() {
         UserDTO user = new UserDTO();
-        user.setUserName(nameInput.getText());
+        user.setUserName(userNameInput.getText());
         user.setPassword(passwordInput.getText());
-        nameInput.clear();
-        passwordInput.clear();
+        /*nameInput.clear();
+        passwordInput.clear();*/
         userController.login(user);
 
     }
@@ -123,12 +123,12 @@ public class App extends Application {
     public void addButtonClicked() {
         AquascapeDTO aquascape = new AquascapeDTO();
         aquascape.setAquascapeId(Integer.parseInt(idInput.getText()));
-        aquascape.setName(nameInput.getText());
+        aquascape.setName(aquascapeNameInput.getText());
         aquascape.setDifficulty(Integer.parseInt(difficultyInput.getText()));
 
         table.getItems().add(aquascape);
         idInput.clear();
-        nameInput.clear();
+        aquascapeNameInput.clear();
         difficultyInput.clear();
     }
 

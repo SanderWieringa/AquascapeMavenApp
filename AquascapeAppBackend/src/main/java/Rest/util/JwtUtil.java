@@ -1,10 +1,11 @@
 package Rest.util;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-import io.jsonwebtoken.Claims;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -42,10 +43,10 @@ public class JwtUtil
         return extractExpiration(token).before(new Date());
     }
 
-    public String generateToken(UserDetails userDetails)
+    public String generateToken(User user)
     {
         Map<String, Object> claims = new HashMap<>();
-        return createToken(claims, userDetails.getUsername());
+        return createToken(claims, user.getUsername());
     }
 
     private String createToken(Map<String, Object> claims, String subject)

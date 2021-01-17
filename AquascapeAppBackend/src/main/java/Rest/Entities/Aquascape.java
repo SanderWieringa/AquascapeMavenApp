@@ -21,7 +21,6 @@ public class Aquascape
     private String Name;
     private int Difficulty;
 
-
     public Aquascape(int AquascapeId, String Name, int Difficulty)
     {
         this.plantsInAquarium = new ArrayList<Plant>();
@@ -61,6 +60,8 @@ public class Aquascape
         return AquascapeId;
 
     }
+
+
 
     public void setAquascapeId(int aquascapeId)
     {

@@ -1,6 +1,8 @@
 package Rest.filters;
 
+import Rest.Entities.User;
 import Rest.Services.MyUserDetailsService;
+import Rest.Services.UserCollectionService;
 import Rest.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,6 +21,9 @@ import java.io.IOException;
 @Component
 public class JwtRequestFilters extends OncePerRequestFilter
 {
+    @Autowired
+    private UserCollectionService userCollectionService;
+
     @Autowired
     private MyUserDetailsService userDetailsService;
 
@@ -41,7 +46,7 @@ public class JwtRequestFilters extends OncePerRequestFilter
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null)
         {
-            UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
+            UserDetails userDetails = userDetailsService.loadUserByUsername(username);
             if (jwtUtil.validateToken(jwt, userDetails))
             {
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken

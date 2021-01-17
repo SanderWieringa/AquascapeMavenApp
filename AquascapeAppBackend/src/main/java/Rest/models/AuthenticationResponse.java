@@ -1,7 +1,6 @@
 package Rest.models;
 
-public class AuthenticationResponse
-{
+public class AuthenticationResponse {
     private final String jwt;
 
     public AuthenticationResponse(String jwt) {

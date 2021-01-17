@@ -1,9 +1,14 @@
 package Rest.Controllers;
 
 import Rest.Entities.Aquascape;
-import Rest.Entities.Plant;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import Rest.Entities.Fish;
 import Rest.Services.AquascapeCollectionService;
-import Rest.Services.PlantCollectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +22,7 @@ public class AquascapeController {
     @Autowired
     private AquascapeCollectionService aquascapeCollectionService;
 
-    @CrossOrigin
-    @RequestMapping( value = "/hello", method = RequestMethod.GET)
+    @RequestMapping(value = "/hello")
     public ResponseEntity<String> sayHi(){
         try {
             return new ResponseEntity<String>("Hi", HttpStatus.OK);
@@ -28,7 +32,20 @@ public class AquascapeController {
         }
     }
 
-    /*@CrossOrigin
+    /*@GET
+    @Path("/aquascapes")
+    @Produces(MediaType.APPLICATION_JSON)*/
+    @RequestMapping(value = "/aquascapes")
+    public ResponseEntity<List<Aquascape>> getAllAquascpaes() {
+        try {
+            return new ResponseEntity<>(aquascapeCollectionService.getAllAquascapes(), HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    /*
     @RequestMapping(value = "/aquascapes/{id}")
     public ResponseEntity<List<Aquascape>> getAllAquascapesByUser(int userId) {
         try {
@@ -39,18 +56,16 @@ public class AquascapeController {
         }
     }*/
 
-    @CrossOrigin
-    @RequestMapping(value = "/aquascapes/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Aquascape> getAquascapeById(int id) {
+    @RequestMapping(value = "/aquascapes/{id}")
+    public ResponseEntity<Aquascape> getAquascapeById(@PathVariable String id) {
         try {
-            return new ResponseEntity<>(aquascapeCollectionService.getAquascapeById(id), HttpStatus.OK);
+            return new ResponseEntity<>(aquascapeCollectionService.getAquascapeById(Integer.parseInt(id)), HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
-    @CrossOrigin
     @RequestMapping(method = RequestMethod.POST, value = "/aquascapes")
     public ResponseEntity addPlant(@RequestBody Aquascape aquascape) {
         try {

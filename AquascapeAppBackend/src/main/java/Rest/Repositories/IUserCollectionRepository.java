@@ -1,13 +1,17 @@
 package Rest.Repositories;
 
+import Rest.Entities.Aquascape;
 import Rest.Entities.User;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
-@org.springframework.stereotype.Repository
-public interface IUserCollectionRepository extends CrudRepository<User, String>
+@Repository
+public interface IUserCollectionRepository extends CrudRepository<User, Integer>
 {
-    @Override
-    Optional<User> findById(String s);
+    Optional<User> findByUserName(String username);
+    //ArrayList<Aquascape> findAllById(int userId);
 }

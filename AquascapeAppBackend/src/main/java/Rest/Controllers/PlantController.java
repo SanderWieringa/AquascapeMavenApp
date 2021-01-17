@@ -1,6 +1,5 @@
 package Rest.Controllers;
 
-import Rest.Entities.Aquascape;
 import Rest.Entities.Plant;
 import Rest.Services.PlantCollectionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +15,7 @@ public class PlantController {
     @Autowired
     private PlantCollectionService plantCollectionService;
 
-    @CrossOrigin
-    @RequestMapping(value = "/plants", method = RequestMethod.GET)
+    @RequestMapping(value = "/plants")
     public ResponseEntity<List<Plant>> getAllPlants() {
         try {
             return new ResponseEntity<>(plantCollectionService.getAllPlants(), HttpStatus.OK);
@@ -27,7 +25,6 @@ public class PlantController {
         }
     }
 
-    @CrossOrigin
     @RequestMapping(method = RequestMethod.POST, value = "/plants")
     public ResponseEntity addPlant(@RequestBody Plant plant) {
         try {
@@ -39,11 +36,10 @@ public class PlantController {
         }
     }
 
-    @CrossOrigin
-    @RequestMapping(value = "/plants/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Plant> getPlantById(int id) {
+    @RequestMapping(value = "/plants/{id}")
+    public ResponseEntity<Plant> getPlantById(@PathVariable String id) {
         try {
-            return new ResponseEntity<>(plantCollectionService.getPlantById(id), HttpStatus.OK);
+            return new ResponseEntity<>(plantCollectionService.getPlantById(Integer.parseInt(id)), HttpStatus.OK);
         }
         catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

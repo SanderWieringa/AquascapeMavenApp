@@ -3,7 +3,7 @@ package Rest.models;
 public class AuthenticationRequest
 {
 
-    private String username;
+    private String userName;
     private String password;
 
     public AuthenticationRequest()
@@ -12,18 +12,18 @@ public class AuthenticationRequest
 
     public AuthenticationRequest(String username, String password)
     {
-        this.username = username;
+        this.userName = username;
         this.password = password;
     }
 
-    public String getUsername()
+    public String getUserName()
     {
-        return username;
+        return userName;
     }
 
-    public void setUsername(String username)
+    public void setUserName(String userName)
     {
-        this.username = username;
+        this.userName = userName;
     }
 
     public String getPassword()

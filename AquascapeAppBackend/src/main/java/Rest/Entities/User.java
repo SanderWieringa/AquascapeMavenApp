@@ -1,21 +1,26 @@
 package Rest.Entities;
 
-import org.springframework.stereotype.Service;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
+@Table(name = "Account")
 @Entity
 public class User
 {
-    @ManyToMany
-    private List<Aquascape> aquascapes;
     @Column(unique=true, nullable=false)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private int userId;
+    @ManyToMany
+    private List<Aquascape> aquascapes = new ArrayList<>();
+    //@Column(unique=true, nullable=false)
     private String userName;
+    //@Column(nullable=false)
     private String password;
 
     public User(int userId, String userName, String password)
@@ -76,6 +81,8 @@ public class User
     {
         this.userName = userName;
     }
+
+
 
     public String getPassword()
     {

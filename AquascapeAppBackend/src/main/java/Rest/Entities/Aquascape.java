@@ -1,6 +1,7 @@
 package Rest.Entities;
 
 import com.sun.istack.NotNull;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,8 +11,10 @@ import java.util.List;
 public class Aquascape
 {
     @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Plant> plantsInAquarium;
     @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Fish> fishInAquarium;
     @Column(unique=true, nullable=false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

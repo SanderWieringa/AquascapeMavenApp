@@ -32,15 +32,21 @@ public class UserController {
 
     private final Gson gson = new Gson();
 
-    UserMessage message;
+    private UserMessage message;
 
-    UserResponse userResponse;
+    private UserResponse userResponse;
+
+    AquascapeController aquascapeController = new AquascapeController();
 
     public UserDTO login(UserDTO user) {
         message = UserMessage.LOGIN;
         UserDTO userRequest = new UserDTO(user.getUserName(), user.getPassword());
         String queryPost = "/authenticate";
         UserResponse response = executeQueryPost(userRequest, queryPost);
+        if (response.isSuccess()) {
+            // TODO: return aquascapes
+            aquascapeController.getAquascapes();
+        }
         return response.getUser();
     }
 
@@ -71,6 +77,7 @@ public class UserController {
             switch(message) {
                 case LOGIN :
                     userResponse = gson.fromJson(entityString, UserResponse.class);
+                    userResponse.setSuccess(true);
                     break;
                 case REGISTER :
                     // TODO: register user
@@ -90,5 +97,9 @@ public class UserController {
             userResponse.setSuccess(false);
             return userResponse;
         }
+    }
+
+    public UserResponse getUserResponse() {
+        return userResponse;
     }
 }

@@ -13,16 +13,29 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import restshared.AquascapeDTO;
 import restshared.AquascapeResponse;
+import restshared.PlantDTO;
 
 import java.io.IOException;
 import java.util.List;
 
 public class AquascapeController {
-    private final String url = "localhost:3337";
+    private final String url = "http://localhost:3337";
 
     //private static final Logger log = LoggerFactory.getLogger();
 
     private final Gson gson = new Gson();
+
+    public List<AquascapeDTO> getAquascapeById(String id) {
+        String queryGet = "/aquascapes";
+        AquascapeResponse response = executeQueryGet(queryGet);
+        return response.getAquascapes();
+    }
+
+    public List<PlantDTO> getPlantsByAquascape(String id) {
+        String queryGet = "/aquascapes";
+        AquascapeResponse response = executeQueryGet(queryGet);
+        return response.getPlantsByAquascape();
+    }
 
     public List<AquascapeDTO> getAquascapes() {
         String queryGet = "/aquascapes";

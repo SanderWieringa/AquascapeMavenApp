@@ -41,11 +41,13 @@ public class UserCollectionService implements UserDetailsService
     public User login(AuthenticationRequest authenticationRequest) throws InvalidKeySpecException, NoSuchAlgorithmException {
         User user = new User();
 
-        if (PasswordValidator.validatePassword(authenticationRequest.getPassword(), userCollectionRepository.findByUserName(authenticationRequest.getUserName()).get().getPassword())) {
-            user.setUserName(authenticationRequest.getUserName());
-            user.setPassword(authenticationRequest.getPassword());
-            return user;
-        }
+        /*if (!authenticationRequest.getUserName().isEmpty()) {*/
+            if (PasswordValidator.validatePassword(authenticationRequest.getPassword(), userCollectionRepository.findByUserName(authenticationRequest.getUserName()).get().getPassword())) {
+                user.setUserName(authenticationRequest.getUserName());
+                user.setPassword(authenticationRequest.getPassword());
+                return user;
+            }
+        //}
 
         return null;
     }

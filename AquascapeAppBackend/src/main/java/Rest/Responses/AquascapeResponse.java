@@ -1,12 +1,11 @@
-package restshared;
+package Rest.Responses;
 
-import java.util.List;
+import Rest.Entities.Aquascape;
 
 public class AquascapeResponse {
-
     private boolean success;
 
-    private AquascapeDTO aquascape;
+    private Aquascape aquascape;
 
     public boolean isSuccess() {
         return success;
@@ -16,11 +15,11 @@ public class AquascapeResponse {
         this.success = success;
     }
 
-    public AquascapeDTO getAquascape() {
+    public Aquascape getAquascape() {
         return aquascape;
     }
 
-    public void setAquascape(AquascapeDTO aquascape) {
+    public void setAquascape(Aquascape aquascape) {
         this.aquascape = aquascape;
     }
 }

@@ -9,37 +9,27 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import restshared.AquascapeDTO;
 import restshared.AquascapeCollectionResponse;
+import restshared.AquascapeDTO;
 import restshared.AquascapeResponse;
-import restshared.PlantDTO;
 
 import java.io.IOException;
 import java.util.List;
 
-public class AquascapeController {
+public class AquascapeCollectionController {
     private final String url = "http://localhost:3337";
 
-    //private static final Logger log = LoggerFactory.getLogger();
-
-
-    private AquascapeResponse aquascapeResponse;
+    private AquascapeCollectionResponse aquascapeResponse;
 
     private final Gson gson = new Gson();
 
-    public AquascapeDTO getAquascapeById(String id) {
+    public List<AquascapeDTO> getAquascapes() {
         String queryGet = "/aquascapes";
-        AquascapeResponse response = executeQueryGet(queryGet);
-        return response.getAquascape();
+        AquascapeCollectionResponse response = executeQueryGet(queryGet);
+        return response.getAquascapes();
     }
 
-    public List<PlantDTO> getPlantsByAquascape(String id) {
-        String queryGet = "/aquascapes";
-        AquascapeResponse response = executeQueryGet(queryGet);
-        return response.getAquascape().getPlantsInAquarium();
-    }
-
-    private AquascapeResponse executeQueryGet(String queryGet) {
+    private AquascapeCollectionResponse executeQueryGet(String queryGet) {
         final String query = url + queryGet;
         System.out.println("[Query Get] : " + query);
 
@@ -48,25 +38,25 @@ public class AquascapeController {
         return executeHttpUriRequest(httpGet);
     }
 
-    private AquascapeResponse executeHttpUriRequest(HttpUriRequest httpUriRequest) {
+    private AquascapeCollectionResponse executeHttpUriRequest(HttpUriRequest httpUriRequest) {
         try(CloseableHttpClient httpClient = HttpClients.createDefault();
             CloseableHttpResponse response = httpClient.execute(httpUriRequest)){
             System.out.println("[Status Line] : " + response.getStatusLine());
             HttpEntity entity = response.getEntity();
             final String entityString = EntityUtils.toString(entity);
             System.out.println("[Entity] : " + entityString);
-            aquascapeResponse = gson.fromJson(entityString, AquascapeResponse.class);
+            aquascapeResponse = gson.fromJson(entityString, AquascapeCollectionResponse.class);
             return aquascapeResponse;
         }
         catch (IOException e) {
             System.out.println("IOException : " + e.toString());
-            AquascapeResponse aquascapeResponse = new AquascapeResponse();
+            AquascapeCollectionResponse aquascapeResponse = new AquascapeCollectionResponse();
             aquascapeResponse.setSuccess(false);
             return aquascapeResponse;
         }
         catch (JsonSyntaxException e) {
             System.out.println("JsonSyntaxException : " + e.toString());
-            AquascapeResponse aquascapeResponse = new AquascapeResponse();
+            AquascapeCollectionResponse aquascapeResponse = new AquascapeCollectionResponse();
             aquascapeResponse.setSuccess(false);
             return aquascapeResponse;
         }

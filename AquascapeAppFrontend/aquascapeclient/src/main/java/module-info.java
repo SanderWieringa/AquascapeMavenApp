@@ -10,6 +10,8 @@ module aquascapeclient {
     requires javafx.graphics;
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
+    requires javax.websocket.client.api;
     opens org.controllers;
     exports org.controllers;
     exports org;

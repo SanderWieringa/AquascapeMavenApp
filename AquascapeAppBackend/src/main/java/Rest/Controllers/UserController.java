@@ -28,7 +28,6 @@ public class UserController {
     @Autowired
     private JwtUtil jwtTokenUtil;
 
-    @CrossOrigin
     @RequestMapping(method = RequestMethod.POST, value = "/register")
     public ResponseEntity<?> addUser(@RequestBody User user) {
         try {

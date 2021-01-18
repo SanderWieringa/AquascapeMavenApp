@@ -19,18 +19,18 @@ public class Aquascape
     @Column(unique=true, nullable=false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
-    private int AquascapeId;
+    private int aquascapeId;
     @NotNull
-    private String Name;
-    private int Difficulty;
+    private String name;
+    private int difficulty;
 
     public Aquascape(int AquascapeId, String Name, int Difficulty)
     {
         this.plantsInAquarium = new ArrayList<Plant>();
         this.fishInAquarium = new ArrayList<Fish>();
-        this.AquascapeId = AquascapeId;
-        this.Name = Name;
-        this.Difficulty = Difficulty;
+        this.aquascapeId = AquascapeId;
+        this.name = Name;
+        this.difficulty = Difficulty;
     }
 
     public Aquascape()
@@ -60,7 +60,7 @@ public class Aquascape
     }
 
     public int getAquascapeId() {
-        return AquascapeId;
+        return aquascapeId;
 
     }
 
@@ -68,27 +68,27 @@ public class Aquascape
 
     public void setAquascapeId(int aquascapeId)
     {
-        AquascapeId = aquascapeId;
+        this.aquascapeId = aquascapeId;
     }
 
     public String getName()
     {
-        return Name;
+        return name;
     }
 
     public void setName(String name)
     {
-        Name = name;
+        this.name = name;
     }
 
     public int getDifficulty()
     {
-        return Difficulty;
+        return difficulty;
     }
 
     public void setDifficulty(int difficulty)
     {
-        Difficulty = difficulty;
+        this.difficulty = difficulty;
     }
 
 

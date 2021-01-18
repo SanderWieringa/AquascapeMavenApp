@@ -2,11 +2,10 @@ package restshared;
 
 import java.util.List;
 
-public class AquascapeResponse {
-
+public class PlantCollectionResponse {
     private boolean success;
 
-    private AquascapeDTO aquascape;
+    private List<PlantDTO> plants;
 
     public boolean isSuccess() {
         return success;
@@ -16,11 +15,11 @@ public class AquascapeResponse {
         this.success = success;
     }
 
-    public AquascapeDTO getAquascape() {
-        return aquascape;
+    public List<PlantDTO> getPlants() {
+        return plants;
     }
 
-    public void setAquascape(AquascapeDTO aquascape) {
-        this.aquascape = aquascape;
+    public void setPlants(List<PlantDTO> plants) {
+        this.plants = plants;
     }
 }

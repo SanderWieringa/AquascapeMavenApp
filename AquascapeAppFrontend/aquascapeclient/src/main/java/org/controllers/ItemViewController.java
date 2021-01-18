@@ -1,5 +1,6 @@
 package org.controllers;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -45,12 +46,13 @@ public class ItemViewController implements Initializable {
     }
 
     static void setColumns(TableColumn<PlantDTO, String> plantNameColumn, TableColumn<PlantDTO, Integer> plantDifficultyColumn/*, TableColumn<FishDTO, String> fishNameColumn, TableColumn<FishDTO, FishType> fishTypeColumn, TableColumn<FishDTO, FishSize> fishSizeColumn*/) {
-        plantNameColumn.setCellValueFactory(new PropertyValueFactory<>("Plant Name"));
-        plantDifficultyColumn.setCellValueFactory(new PropertyValueFactory<>("Plant Difficulty"));
+        plantNameColumn.setCellValueFactory(new PropertyValueFactory<>("plantName"));
+        plantDifficultyColumn.setCellValueFactory(new PropertyValueFactory<>("difficulty"));
 
         /*fishNameColumn.setCellValueFactory(new PropertyValueFactory<>("Fish Name"));
         fishTypeColumn.setCellValueFactory(new PropertyValueFactory<>("Fish Type"));
         fishSizeColumn.setCellValueFactory(new PropertyValueFactory<>("Fish Size"));*/
+
     }
 
     public void addPlantItem(TableColumn.CellEditEvent cellToAdd) {
@@ -58,7 +60,8 @@ public class ItemViewController implements Initializable {
     }
 
     public ObservableList<PlantDTO> getPlants() {
-        return plantController.getPlants();
+        ObservableList<PlantDTO> list = FXCollections.observableList(plantController.getPlants());
+        return list;
     }
 
     /*public ObservableList<FishDTO> getFishes() {

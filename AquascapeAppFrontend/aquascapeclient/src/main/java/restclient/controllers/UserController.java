@@ -11,14 +11,11 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import restshared.AquascapeDTO;
-import restshared.AquascapeResponse;
 import restshared.UserDTO;
 import restshared.UserResponse;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -42,7 +39,7 @@ public class UserController {
 
     public void register(UserDTO user) {
         message = UserMessage.REGISTER;
-        UserDTO userRequest = new UserDTO(user.getUserName(), user.getPassword());
+        UserDTO userRequest = new UserDTO(1, user.getUserName(), user.getPassword());
         String queryPost = "/register";
         UserResponse response = executeQueryPost(userRequest, queryPost);
         if (response.isSuccess()) {
@@ -52,13 +49,9 @@ public class UserController {
 
     public UserDTO login(UserDTO user) {
         message = UserMessage.LOGIN;
-        UserDTO userRequest = new UserDTO(user.getUserName(), user.getPassword());
+        UserDTO userRequest = new UserDTO(1, user.getUserName(), user.getPassword());
         String queryPost = "/authenticate";
         UserResponse response = executeQueryPost(userRequest, queryPost);
-        if (response.isSuccess()) {
-            // TODO: return aquascapes
-            aquascapeController.getAquascapes();
-        }
         return response.getUser();
     }
 
@@ -82,6 +75,7 @@ public class UserController {
 
         try (CloseableHttpClient httpClient = HttpClients.createDefault();
              CloseableHttpResponse response = httpClient.execute(httpUriRequest)) {
+
             System.out.println("[Status Line] : " + response.getStatusLine());
             HttpEntity entity = response.getEntity();
             final String entityString = EntityUtils.toString(entity);

@@ -7,7 +7,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import Rest.Entities.AquascapeAssembler;
 import Rest.Entities.Fish;
+import Rest.Responses.AquascapeCollectionResponse;
+import Rest.Responses.AquascapeResponse;
 import Rest.Services.AquascapeCollectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +24,8 @@ public class AquascapeController {
 
     @Autowired
     private AquascapeCollectionService aquascapeCollectionService;
+
+    private AquascapeAssembler aquascapeAssembler = new AquascapeAssembler();
 
     @RequestMapping(value = "/hello")
     public ResponseEntity<String> sayHi(){
@@ -36,9 +41,11 @@ public class AquascapeController {
     @Path("/aquascapes")
     @Produces(MediaType.APPLICATION_JSON)*/
     @RequestMapping(value = "/aquascapes")
-    public ResponseEntity<List<Aquascape>> getAllAquascpaes() {
+    public ResponseEntity<AquascapeCollectionResponse> getAllAquascapes() {
         try {
-            return new ResponseEntity<>(aquascapeCollectionService.getAllAquascapes(), HttpStatus.OK);
+            AquascapeCollectionResponse response = new AquascapeCollectionResponse();
+            response.setAquascapes(aquascapeCollectionService.getAllAquascapes());
+            return ResponseEntity.ok(response);
         }
         catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -57,9 +64,11 @@ public class AquascapeController {
     }*/
 
     @RequestMapping(value = "/aquascapes/{id}")
-    public ResponseEntity<Aquascape> getAquascapeById(@PathVariable String id) {
+    public ResponseEntity<AquascapeResponse> getAquascapeById(@PathVariable String id) {
         try {
-            return new ResponseEntity<>(aquascapeCollectionService.getAquascapeById(Integer.parseInt(id)), HttpStatus.OK);
+            AquascapeResponse aquascapeResponse = new AquascapeResponse();
+            aquascapeResponse.setAquascape(aquascapeCollectionService.getAquascapeById(Integer.parseInt(id)));
+            return ResponseEntity.ok(aquascapeResponse);
         }
         catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -67,10 +76,12 @@ public class AquascapeController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/aquascapes")
-    public ResponseEntity addPlant(@RequestBody Aquascape aquascape) {
+    public ResponseEntity<AquascapeCollectionResponse> addPlant(@RequestBody Aquascape aquascape) {
         try {
+            AquascapeCollectionResponse aquascapeCollectionResponse = new AquascapeCollectionResponse();
+            aquascapeCollectionResponse.setSuccess(true);
             aquascapeCollectionService.addAquascape(aquascape);
-            return new ResponseEntity(HttpStatus.OK);
+            return ResponseEntity.ok(aquascapeCollectionResponse);
         }
         catch (Exception e) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);

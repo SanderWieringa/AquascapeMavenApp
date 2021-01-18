@@ -1,6 +1,7 @@
 package Rest.Controllers;
 
 import Rest.Entities.Plant;
+import Rest.Responses.PlantCollectionResponse;
 import Rest.Services.PlantCollectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,9 +17,11 @@ public class PlantController {
     private PlantCollectionService plantCollectionService;
 
     @RequestMapping(value = "/plants")
-    public ResponseEntity<List<Plant>> getAllPlants() {
+    public ResponseEntity<PlantCollectionResponse> getAllPlants() {
         try {
-            return new ResponseEntity<>(plantCollectionService.getAllPlants(), HttpStatus.OK);
+            PlantCollectionResponse plantCollectionResponse = new PlantCollectionResponse();
+            plantCollectionResponse.setAquascapes(plantCollectionService.getAllPlants());
+            return ResponseEntity.ok(plantCollectionResponse);
         }
         catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

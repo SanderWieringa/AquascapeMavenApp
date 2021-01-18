@@ -2,5 +2,8 @@ package Messages;
 
 public enum UserMessage {
     LOGIN,
-    REGISTER
+    REGISTER,
+    ADD_PLANT,
+    CREATE_AQUASCAPE,
+    EDIT_AQUASCAPE
 }

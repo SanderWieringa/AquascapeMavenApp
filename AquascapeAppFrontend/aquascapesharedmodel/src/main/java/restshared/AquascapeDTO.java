@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 public class AquascapeDTO {
     private ArrayList<PlantDTO> plantsInAquarium;
+    private ArrayList<FishDTO> fishInAquarium;
     private int aquascapeId;
     private String name;
     private int difficulty;
 
     public AquascapeDTO() {
         plantsInAquarium = new ArrayList<>();
+        fishInAquarium = new ArrayList<>();
         aquascapeId = 0;
         name = "";
         difficulty = 0;
@@ -43,5 +45,13 @@ public class AquascapeDTO {
 
     public void setDifficulty(int difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public ArrayList<PlantDTO> getPlantsInAquarium() {
+        return plantsInAquarium;
+    }
+
+    public void setPlantsInAquarium(ArrayList<PlantDTO> plantsInAquarium) {
+        this.plantsInAquarium = plantsInAquarium;
     }
 }

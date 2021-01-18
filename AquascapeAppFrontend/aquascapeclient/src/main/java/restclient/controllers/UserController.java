@@ -24,6 +24,8 @@ import java.util.logging.Logger;
 
 public class UserController {
 
+    public static String jwtToken;
+
     private final String url = "http://localhost:3337";
 
     private final int NOTDEFINED = -1;
@@ -87,6 +89,7 @@ public class UserController {
             switch(message) {
                 case LOGIN :
                     userResponse = gson.fromJson(entityString, UserResponse.class);
+                    setJwtToken(entityString);
                     userResponse.setSuccess(true);
                     break;
                 case REGISTER :
@@ -108,6 +111,14 @@ public class UserController {
             userResponse.setSuccess(false);
             return userResponse;
         }
+    }
+
+    public static String getJwtToken() {
+        return jwtToken;
+    }
+
+    public static void setJwtToken(String jwtToken) {
+        UserController.jwtToken = jwtToken;
     }
 
     public UserResponse getUserResponse() {

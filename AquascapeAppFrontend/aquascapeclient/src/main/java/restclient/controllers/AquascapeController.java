@@ -23,6 +23,8 @@ public class AquascapeController {
 
     //private static final Logger log = LoggerFactory.getLogger();
 
+    UserController userController = new UserController();
+
     private final Gson gson = new Gson();
 
     public List<AquascapeDTO> getAquascapeById(String id) {
@@ -48,7 +50,7 @@ public class AquascapeController {
         System.out.println("[Query Get] : " + query);
 
         HttpGet httpGet = new HttpGet(query);
-        httpGet.addHeader("content-type", "application/json");
+        httpGet.setHeader("Authorization", "Bearer" + UserController.jwtToken);
         return executeHttpUriRequest(httpGet);
     }
 

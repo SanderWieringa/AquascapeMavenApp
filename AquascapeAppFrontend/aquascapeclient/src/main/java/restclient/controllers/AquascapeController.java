@@ -23,7 +23,6 @@ public class AquascapeController {
 
     //private static final Logger log = LoggerFactory.getLogger();
 
-    UserController userController = new UserController();
 
     private final Gson gson = new Gson();
 

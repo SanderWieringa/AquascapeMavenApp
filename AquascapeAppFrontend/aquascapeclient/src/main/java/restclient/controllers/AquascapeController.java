@@ -48,6 +48,7 @@ public class AquascapeController {
         System.out.println("[Query Get] : " + query);
 
         HttpGet httpGet = new HttpGet(query);
+        httpGet.addHeader("content-type", "application/json");
         return executeHttpUriRequest(httpGet);
     }
 

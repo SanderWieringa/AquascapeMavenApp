@@ -38,6 +38,16 @@ public class UserController {
 
     AquascapeController aquascapeController = new AquascapeController();
 
+    public void register(UserDTO user) {
+        message = UserMessage.REGISTER;
+        UserDTO userRequest = new UserDTO(user.getUserName(), user.getPassword());
+        String queryPost = "/register";
+        UserResponse response = executeQueryPost(userRequest, queryPost);
+        if (response.isSuccess()) {
+
+        }
+    }
+
     public UserDTO login(UserDTO user) {
         message = UserMessage.LOGIN;
         UserDTO userRequest = new UserDTO(user.getUserName(), user.getPassword());
@@ -80,7 +90,8 @@ public class UserController {
                     userResponse.setSuccess(true);
                     break;
                 case REGISTER :
-                    // TODO: register user
+                    userResponse = gson.fromJson(entityString, UserResponse.class);
+                    userResponse.setSuccess(true);
             }
 
             return userResponse;

@@ -1,10 +1,12 @@
 package org;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
+import org.w3c.dom.events.MouseEvent;
 
 public class Main extends Application {
 
@@ -13,7 +15,9 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/LoginView.fxml"));
         stage.setTitle("Login");
-        stage.setScene(new Scene(root, 300, 275));
+
+        stage.setScene(new Scene(root, 600, 400));
+
         stage.show();
     }
 

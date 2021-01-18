@@ -12,9 +12,9 @@ import restshared.AquascapeDTO;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HomeViewController /*implements Initializable*/ {
+public class HomeViewController implements Initializable {
 
-    /*AquascapeController aquascapeController = new AquascapeController();
+    AquascapeController aquascapeController = new AquascapeController();
     @FXML
     private TableView<AquascapeDTO> tableView;
     @FXML
@@ -24,8 +24,8 @@ public class HomeViewController /*implements Initializable*/ {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        aquascapeNameColumn.setCellValueFactory(new PropertyValueFactory<AquascapeDTO, String>("Aquascape Name"));
-        aquascapeDifficultyColumn.setCellValueFactory(new PropertyValueFactory<AquascapeDTO, String>("Aquascape Difficulty"));
+        aquascapeNameColumn.setCellValueFactory(new PropertyValueFactory<AquascapeDTO, String>("name"));
+        aquascapeDifficultyColumn.setCellValueFactory(new PropertyValueFactory<AquascapeDTO, String>("difficulty"));
 
         tableView.setItems(getAquascapes());
     }
@@ -34,7 +34,11 @@ public class HomeViewController /*implements Initializable*/ {
         return (ObservableList<AquascapeDTO>) aquascapeController.getAquascapes();
     }
 
+    public void editAquascapeEvent() {
+
+    }
+
     public void newAquascapeButtonClicked() {
 
-    }*/
+    }
 }

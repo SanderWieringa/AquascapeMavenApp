@@ -30,7 +30,7 @@ public class UserController {
 
     @CrossOrigin
     @RequestMapping(method = RequestMethod.POST, value = "/register")
-    public ResponseEntity addUser(@RequestBody User user) {
+    public ResponseEntity<?> addUser(@RequestBody User user) {
         try {
             userCollectionService.addUser(user);
             return new ResponseEntity(HttpStatus.OK);

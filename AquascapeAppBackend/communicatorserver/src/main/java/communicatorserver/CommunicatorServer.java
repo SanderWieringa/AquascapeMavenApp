@@ -4,11 +4,12 @@ import javax.websocket.server.ServerContainer;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.websocket.jsr356.server.deploy.WebSocketServerContainerInitializer;
+
+import static org.eclipse.jetty.websocket.jsr356.server.deploy.WebSocketServerContainerInitializer.configureContext;
 
 public class CommunicatorServer {
 
-    private static final int PORT = 8095;
+    private static final int PORT = 8096;
 
     /**
      * @param args the command line arguments
@@ -33,7 +34,7 @@ public class CommunicatorServer {
 
         try {
             // Initialize javax.websocket layer
-            ServerContainer wscontainer = WebSocketServerContainerInitializer.configureContext(webSocketContext);
+            ServerContainer wscontainer = configureContext(webSocketContext);
 
             // Add WebSocket endpoint to javax.websocket layer
             wscontainer.addEndpoint(CommunicatorServerWebSocket.class);

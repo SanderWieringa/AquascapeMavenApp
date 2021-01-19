@@ -1,9 +1,12 @@
 package endpoints;
 
+/*import Messages.UserMessage;
+import Messages.WebSocketMessage;*/
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import communicatorshared.CommunicatorWebSocketMessage;
 import communicatorshared.CommunicatorWebSocketMessageOperation;
+import restshared.AquascapeDTO;
 import restshared.AquascapeResponse;
 
 import javax.websocket.*;
@@ -17,8 +20,7 @@ public class AquascapeEndPoint extends Communicator {
 
     private static AquascapeEndPoint instance = null;
 
-    //http://localhost:8095/servercommunicator/
-    private final String uri = "http://localhost:8096/";
+    private final String uri = "ws://localhost:8095/servercommunicator/";
 
     private Session session;
 

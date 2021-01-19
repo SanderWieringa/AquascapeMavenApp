@@ -1,5 +1,6 @@
 package Rest.Entities;
 
+import com.sun.istack.NotNull;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ public class Aquascape
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
     private int aquascapeId;
+    @NotNull
     private String name;
     private int difficulty;
 
@@ -61,31 +63,4 @@ public class Aquascape
         return aquascapeId;
 
     }
-
-    public void setAquascapeId(int aquascapeId)
-    {
-        this.aquascapeId = aquascapeId;
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
-    public int getDifficulty()
-    {
-        return difficulty;
-    }
-
-    public void setDifficulty(int difficulty)
-    {
-        this.difficulty = difficulty;
-    }
-
-
 }

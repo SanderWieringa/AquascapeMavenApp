@@ -26,7 +26,7 @@ public class AquascapeController {
         }
     }
 
-    @RequestMapping(value = "/aquascapes", method = RequestMethod.GET)
+    @GetMapping(value = "/aquascapes")
     public ResponseEntity<AquascapeCollectionResponse> getAllAquascapes() {
         try {
             AquascapeCollectionResponse response = new AquascapeCollectionResponse();
@@ -38,7 +38,7 @@ public class AquascapeController {
         }
     }
 
-    @RequestMapping(value = "/aquascapes/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/aquascapes/{id}")
     public ResponseEntity<AquascapeResponse> getAquascapeById(@PathVariable String id) {
         try {
             AquascapeResponse aquascapeResponse = new AquascapeResponse();
@@ -50,7 +50,7 @@ public class AquascapeController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/aquascapes")
+    @PostMapping(value = "/aquascapes")
     public ResponseEntity<AquascapeCollectionResponse> addPlant(@RequestBody Aquascape aquascape) {
         try {
             AquascapeCollectionResponse aquascapeCollectionResponse = new AquascapeCollectionResponse();

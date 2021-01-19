@@ -42,11 +42,6 @@ public class User
         return aquascapes;
     }
 
-    public List<Aquascape> getAllAquascapesByUser()
-    {
-        return aquascapes;
-    }
-
     public Aquascape getAquascapeById(int aquascapeId)
     {
         for (Aquascape aquascape:aquascapes) {

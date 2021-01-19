@@ -1,6 +1,5 @@
 package Rest.Responses;
 
-import Rest.Entities.Aquascape;
 import Rest.Entities.Plant;
 
 import java.util.List;

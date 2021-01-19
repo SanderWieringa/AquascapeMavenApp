@@ -118,7 +118,7 @@ public class AquascapeGenerator
 
     private boolean containsFishSize(Fish fishToAdd, Aquascape aquascape)
     {
-        if (aquascape.getFishInAquarium().stream().filter(fish -> fish.getFishSize().getSize() < fishToAdd.getFishSize().getSize()).findFirst().isPresent())
+        if (aquascape.getFishInAquarium().stream().anyMatch(fish -> fish.getFishSize().getSize() < fishToAdd.getFishSize().getSize()))
         {
             return false;
         }

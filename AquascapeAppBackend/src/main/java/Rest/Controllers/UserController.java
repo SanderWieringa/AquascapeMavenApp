@@ -1,7 +1,6 @@
 package Rest.Controllers;
 
 import Rest.Entities.User;
-import Rest.Services.MyUserDetailsService;
 import Rest.Services.UserCollectionService;
 import Rest.models.AuthenticationRequest;
 import Rest.models.AuthenticationResponse;
@@ -9,7 +8,6 @@ import Rest.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +20,7 @@ public class UserController {
     @Autowired
     private JwtUtil jwtTokenUtil;
 
-    @RequestMapping(method = RequestMethod.POST, value = "/register")
+    @PostMapping(value = "/register")
     public ResponseEntity<?> addUser(@RequestBody User user) {
         try {
             userCollectionService.addUser(user);
@@ -32,7 +30,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/users/{id}")
     public ResponseEntity<User> getUserById(@PathVariable String id) {
         try {
             User user = userCollectionService.getById(Integer.parseInt(id));
@@ -43,7 +41,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/users/userName", method = RequestMethod.GET)
+    @GetMapping(value = "/users/userName")
     public ResponseEntity<User> getUserByUsername(@RequestParam("userName") String userName) {
         try {
             User user = (User) userCollectionService.loadUserByUsername(userName);

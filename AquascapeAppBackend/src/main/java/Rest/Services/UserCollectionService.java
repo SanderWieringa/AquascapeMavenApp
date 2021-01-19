@@ -17,8 +17,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
-public class UserCollectionService implements UserDetailsService
-{
+public class UserCollectionService implements UserDetailsService {
 
     @Autowired
     private IUserCollectionRepository userCollectionRepository;
@@ -27,13 +26,12 @@ public class UserCollectionService implements UserDetailsService
         User user = new User();
         Optional<User> userToCheck = userCollectionRepository.findByUserName(authenticationRequest.getUserName());
         if (userToCheck.isPresent()) {
-            if (!authenticationRequest.getUserName().isEmpty()) {
-                if (PasswordValidator.validatePassword(authenticationRequest.getPassword(), userToCheck.get().getPassword())) {
-                    user.setUserName(authenticationRequest.getUserName());
-                    user.setPassword(authenticationRequest.getPassword());
-                    return user;
-                }
+            if (PasswordValidator.validatePassword(authenticationRequest.getPassword(), userToCheck.get().getPassword())) {
+                user.setUserName(authenticationRequest.getUserName());
+                user.setPassword(authenticationRequest.getPassword());
+                return user;
             }
+
         }
 
         return null;
@@ -52,7 +50,7 @@ public class UserCollectionService implements UserDetailsService
         if (userToConvert.isPresent()) {
             return new User(userToConvert.get().getUserId(), userToConvert.get().getUserName(), userToConvert.get().getPassword());
         }
-        return  null;
+        return null;
     }
 
     @Override

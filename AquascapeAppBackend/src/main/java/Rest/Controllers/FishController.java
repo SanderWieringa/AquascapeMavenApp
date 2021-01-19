@@ -15,7 +15,7 @@ public class FishController {
     @Autowired
     private FishCollectionService fishCollectionService;
 
-    @RequestMapping(value = "/fishes", method = RequestMethod.GET)
+    @GetMapping(value = "/fishes")
     public ResponseEntity<List<Fish>> getAllFishes() {
         try {
             return new ResponseEntity<>(fishCollectionService.getAllFishes(), HttpStatus.OK);
@@ -25,7 +25,7 @@ public class FishController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/fishes")
+    @PostMapping(value = "/fishes")
     public ResponseEntity addFish(@RequestBody Fish fish) {
         try {
             fishCollectionService.addFish(fish);
@@ -36,7 +36,7 @@ public class FishController {
         }
     }
 
-    @RequestMapping(value = "/fishes/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/fishes/{id}")
     public ResponseEntity<Fish> getFishById(@PathVariable String id) {
         try {
             return new ResponseEntity<>(fishCollectionService.getFishById(Integer.parseInt(id)), HttpStatus.OK);

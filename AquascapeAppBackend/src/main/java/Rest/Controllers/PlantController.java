@@ -14,7 +14,7 @@ public class PlantController {
     @Autowired
     private PlantCollectionService plantCollectionService;
 
-    @RequestMapping(value = "/plants", method = RequestMethod.GET)
+    @GetMapping(value = "/plants")
     public ResponseEntity<PlantCollectionResponse> getAllPlants() {
         try {
             PlantCollectionResponse plantCollectionResponse = new PlantCollectionResponse();
@@ -26,7 +26,7 @@ public class PlantController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/plants")
+    @PostMapping(value = "/plants")
     public ResponseEntity addPlant(@RequestBody Plant plant) {
         try {
             plantCollectionService.addPlant(plant);
@@ -37,7 +37,7 @@ public class PlantController {
         }
     }
 
-    @RequestMapping(value = "/plants/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/plants/{id}")
     public ResponseEntity<Plant> getPlantById(@PathVariable String id) {
         try {
             return new ResponseEntity<>(plantCollectionService.getPlantById(Integer.parseInt(id)), HttpStatus.OK);

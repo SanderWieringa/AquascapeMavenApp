@@ -1,8 +1,7 @@
-package Messages;
+package communicatorshared;
 
-
-public class WebSocketMessage {
-    private UserMessage message;
+public class CommunicatorWebSocketMessage {
+    private CommunicatorWebSocketMessageOperation message;
 
     private Object[] parameters;
 
@@ -14,11 +13,11 @@ public class WebSocketMessage {
         this.parameters = parameters;
     }
 
-    public UserMessage getMessage() {
+    public CommunicatorWebSocketMessageOperation getMessage() {
         return message;
     }
 
-    public void setMessage(UserMessage message) {
+    public void setMessage(CommunicatorWebSocketMessageOperation message) {
         this.message = message;
     }
 }

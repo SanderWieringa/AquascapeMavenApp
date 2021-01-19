@@ -1,0 +1,3 @@
+module AquascapeShared {
+    exports aquascapeshared;
+}

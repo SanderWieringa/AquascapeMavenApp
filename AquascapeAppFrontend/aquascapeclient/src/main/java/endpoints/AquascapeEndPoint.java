@@ -1,9 +1,11 @@
 package endpoints;
 
-import Messages.UserMessage;
-import Messages.WebSocketMessage;
+/*import Messages.UserMessage;
+import Messages.WebSocketMessage;*/
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+import communicatorshared.CommunicatorWebSocketMessage;
+
 import javax.websocket.*;
 import java.beans.PropertyChangeListener;
 import java.io.IOException;
@@ -97,7 +99,7 @@ public class AquascapeEndPoint extends Communicator {
         session = null;
     }
 
-    public void sendRequestToServer(WebSocketMessage webSocketMessage) {
+    public void sendRequestToServer(CommunicatorWebSocketMessage webSocketMessage) {
 
         String jsonMessage = gson.toJson(webSocketMessage);
         // Use asynchronous messaging.communication
@@ -152,9 +154,9 @@ public class AquascapeEndPoint extends Communicator {
     private void processMessage(String jsonMessage) {
 
         // Parse incoming message
-        WebSocketMessage webSocketMessage;
+        CommunicatorWebSocketMessage webSocketMessage;
         try {
-            webSocketMessage = gson.fromJson(jsonMessage, WebSocketMessage.class);
+            webSocketMessage = gson.fromJson(jsonMessage, CommunicatorWebSocketMessage.class);
         }
         catch (JsonSyntaxException ex) {
             System.out.println("[WebSocket Client ERROR: cannot parse Json message " + jsonMessage);
@@ -162,7 +164,7 @@ public class AquascapeEndPoint extends Communicator {
         }
 
         // Get the type of response
-        UserMessage message;
+        CommunicatorWebSocketMessage message;
         message = webSocketMessage.getMessage();
 
         // Obtain content from message

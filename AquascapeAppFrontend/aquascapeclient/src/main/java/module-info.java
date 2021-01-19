@@ -12,6 +12,7 @@ module aquascapeclient {
     requires javafx.fxml;
     requires java.desktop;
     requires javax.websocket.client.api;
+    requires communicatorshared;
     opens org.controllers;
     exports org.controllers;
     exports org;

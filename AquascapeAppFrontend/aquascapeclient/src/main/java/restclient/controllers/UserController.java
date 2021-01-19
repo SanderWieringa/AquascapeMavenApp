@@ -1,8 +1,8 @@
 package restclient.controllers;
 
-import Messages.UserMessage;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+import communicatorshared.CommunicatorWebSocketMessageOperation;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -29,14 +29,14 @@ public class UserController {
 
     private final Gson gson = new Gson();
 
-    private UserMessage message;
+    private CommunicatorWebSocketMessageOperation message;
 
     private UserResponse userResponse;
 
     AquascapeController aquascapeController = new AquascapeController();
 
     public void register(UserDTO user) {
-        message = UserMessage.REGISTER;
+        message = CommunicatorWebSocketMessageOperation.REGISTER;
         UserDTO userRequest = new UserDTO(1, user.getUserName(), user.getPassword());
         String queryPost = "/register";
         UserResponse response = executeQueryPost(userRequest, queryPost);
@@ -46,7 +46,7 @@ public class UserController {
     }
 
     public UserDTO login(UserDTO user) {
-        message = UserMessage.LOGIN;
+        message = CommunicatorWebSocketMessageOperation.LOGIN;
         UserDTO userRequest = new UserDTO(1, user.getUserName(), user.getPassword());
         String queryPost = "/authenticate";
         UserResponse response = executeQueryPost(userRequest, queryPost);

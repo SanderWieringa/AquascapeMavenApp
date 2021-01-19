@@ -17,7 +17,7 @@ public class FishController {
     @Autowired
     private FishCollectionService fishCollectionService;
 
-    @RequestMapping(value = "/fishes")
+    @RequestMapping(value = "/fishes", method = RequestMethod.GET)
     public ResponseEntity<List<Fish>> getAllFishes() {
         try {
             return new ResponseEntity<>(fishCollectionService.getAllFishes(), HttpStatus.OK);
@@ -38,7 +38,7 @@ public class FishController {
         }
     }
 
-    @RequestMapping(value = "/fishes/{id}")
+    @RequestMapping(value = "/fishes/{id}", method = RequestMethod.GET)
     public ResponseEntity<Fish> getFishById(@PathVariable String id) {
         try {
             return new ResponseEntity<>(fishCollectionService.getFishById(Integer.parseInt(id)), HttpStatus.OK);

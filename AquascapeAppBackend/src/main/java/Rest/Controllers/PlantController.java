@@ -16,7 +16,7 @@ public class PlantController {
     @Autowired
     private PlantCollectionService plantCollectionService;
 
-    @RequestMapping(value = "/plants")
+    @RequestMapping(value = "/plants", method = RequestMethod.GET)
     public ResponseEntity<PlantCollectionResponse> getAllPlants() {
         try {
             PlantCollectionResponse plantCollectionResponse = new PlantCollectionResponse();
@@ -39,7 +39,7 @@ public class PlantController {
         }
     }
 
-    @RequestMapping(value = "/plants/{id}")
+    @RequestMapping(value = "/plants/{id}", method = RequestMethod.GET)
     public ResponseEntity<Plant> getPlantById(@PathVariable String id) {
         try {
             return new ResponseEntity<>(plantCollectionService.getPlantById(Integer.parseInt(id)), HttpStatus.OK);

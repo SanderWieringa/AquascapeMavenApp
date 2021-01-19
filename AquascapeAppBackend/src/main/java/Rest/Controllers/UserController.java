@@ -51,7 +51,7 @@ public class UserController {
         }
     }*/
 
-    @RequestMapping(value = "/users/{id}")
+    @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
     public ResponseEntity<User> getUserById(@PathVariable String id) {
         try {
             User user = userCollectionService.getById(Integer.parseInt(id));
@@ -66,7 +66,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/users/userName")
+    @RequestMapping(value = "/users/userName", method = RequestMethod.GET)
     public ResponseEntity<User> getUserByUsername(@RequestParam("userName") String userName) {
         try {
             User user = (User) userCollectionService.loadUserByUsername(userName);

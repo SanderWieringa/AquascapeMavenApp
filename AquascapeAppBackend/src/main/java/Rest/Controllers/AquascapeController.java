@@ -27,7 +27,7 @@ public class AquascapeController {
 
     private AquascapeAssembler aquascapeAssembler = new AquascapeAssembler();
 
-    @RequestMapping(value = "/hello")
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public ResponseEntity<String> sayHi(){
         try {
             return new ResponseEntity<String>("Hi", HttpStatus.OK);
@@ -40,7 +40,7 @@ public class AquascapeController {
     /*@GET
     @Path("/aquascapes")
     @Produces(MediaType.APPLICATION_JSON)*/
-    @RequestMapping(value = "/aquascapes")
+    @RequestMapping(value = "/aquascapes", method = RequestMethod.GET)
     public ResponseEntity<AquascapeCollectionResponse> getAllAquascapes() {
         try {
             AquascapeCollectionResponse response = new AquascapeCollectionResponse();
@@ -63,7 +63,7 @@ public class AquascapeController {
         }
     }*/
 
-    @RequestMapping(value = "/aquascapes/{id}")
+    @RequestMapping(value = "/aquascapes/{id}", method = RequestMethod.GET)
     public ResponseEntity<AquascapeResponse> getAquascapeById(@PathVariable String id) {
         try {
             AquascapeResponse aquascapeResponse = new AquascapeResponse();
@@ -86,6 +86,5 @@ public class AquascapeController {
         catch (Exception e) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
-
     }
 }

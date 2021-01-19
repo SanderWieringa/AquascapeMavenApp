@@ -16,8 +16,6 @@ public class AquascapeController {
     @Autowired
     private AquascapeCollectionService aquascapeCollectionService;
 
-    private AquascapeAssembler aquascapeAssembler = new AquascapeAssembler();
-
     @GetMapping(value = "/hello")
     public ResponseEntity<String> sayHi(){
         try {

@@ -7,8 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import restclient.controllers.AquascapeController;
-import restclient.controllers.FishController;
 import restclient.controllers.PlantController;
 import restshared.*;
 
@@ -17,41 +15,24 @@ import java.util.ResourceBundle;
 
 public class ItemViewController implements Initializable {
 
-    AquascapeController aquascapeController = new AquascapeController();
-
     PlantController plantController = new PlantController();
-
-    FishController fishController = new FishController();
     @FXML
     private TableView<PlantDTO> tableViewPlant;
     @FXML
     private TableColumn<PlantDTO, String> plantNameColumn;
     @FXML
     private TableColumn<PlantDTO, Integer> plantDifficultyColumn;
-    /*@FXML
-    private TableView<FishDTO> tableViewFish;
-    @FXML
-    private TableColumn<FishDTO, String> fishNameColumn;
-    @FXML
-    private TableColumn<FishDTO, FishType> fishTypeColumn;
-    @FXML
-    private TableColumn<FishDTO, FishSize> fishSizeColumn;*/
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setColumns(plantNameColumn, plantDifficultyColumn/*, fishNameColumn, fishTypeColumn, fishSizeColumn*/);
+        setColumns(plantNameColumn, plantDifficultyColumn);
 
         tableViewPlant.setItems(getPlants());
-        /*tableViewFish.setItems(getFishes());*/
     }
 
-    static void setColumns(TableColumn<PlantDTO, String> plantNameColumn, TableColumn<PlantDTO, Integer> plantDifficultyColumn/*, TableColumn<FishDTO, String> fishNameColumn, TableColumn<FishDTO, FishType> fishTypeColumn, TableColumn<FishDTO, FishSize> fishSizeColumn*/) {
+    static void setColumns(TableColumn<PlantDTO, String> plantNameColumn, TableColumn<PlantDTO, Integer> plantDifficultyColumn) {
         plantNameColumn.setCellValueFactory(new PropertyValueFactory<>("plantName"));
         plantDifficultyColumn.setCellValueFactory(new PropertyValueFactory<>("difficulty"));
-
-        /*fishNameColumn.setCellValueFactory(new PropertyValueFactory<>("Fish Name"));
-        fishTypeColumn.setCellValueFactory(new PropertyValueFactory<>("Fish Type"));
-        fishSizeColumn.setCellValueFactory(new PropertyValueFactory<>("Fish Size"));*/
 
     }
 
@@ -63,8 +44,4 @@ public class ItemViewController implements Initializable {
         ObservableList<PlantDTO> list = FXCollections.observableList(plantController.getPlants());
         return list;
     }
-
-    /*public ObservableList<FishDTO> getFishes() {
-        return fishController.getFishes();
-    }*/
 }

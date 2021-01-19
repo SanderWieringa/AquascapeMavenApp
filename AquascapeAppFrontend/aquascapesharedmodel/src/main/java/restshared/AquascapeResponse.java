@@ -1,7 +1,5 @@
 package restshared;
 
-import java.util.List;
-
 public class AquascapeResponse {
 
     private boolean success;

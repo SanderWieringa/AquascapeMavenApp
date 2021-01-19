@@ -27,8 +27,6 @@ public class UserController {
 
     private final int NOTDEFINED = -1;
 
-    //private static final Logger log = LoggerFactory.getLogger();
-
     private final Gson gson = new Gson();
 
     private UserMessage message;

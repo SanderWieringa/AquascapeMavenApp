@@ -11,7 +11,6 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import restshared.AquascapeCollectionResponse;
 import restshared.AquascapeDTO;
-import restshared.AquascapeResponse;
 
 import java.io.IOException;
 import java.util.List;

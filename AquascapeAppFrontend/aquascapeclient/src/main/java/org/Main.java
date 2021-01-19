@@ -1,12 +1,10 @@
 package org;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
-import org.w3c.dom.events.MouseEvent;
 
 public class Main extends Application {
 

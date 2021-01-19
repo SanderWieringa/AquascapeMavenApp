@@ -1,11 +1,7 @@
 package Rest.Entities;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Table(name = "Account")
@@ -18,14 +14,14 @@ public class User
     private int userId;
     @ManyToMany
     private List<Aquascape> aquascapes = new ArrayList<>();
-    //@Column(unique=true, nullable=false)
+    @Column(unique=true, nullable=false)
     private String userName;
-    //@Column(nullable=false)
+    @Column(nullable=false)
     private String password;
 
     public User(int userId, String userName, String password)
     {
-        this.aquascapes = new ArrayList<Aquascape>();
+        this.aquascapes = new ArrayList<>();
         this.userId = userId;
         this.userName = userName;
         this.password = password;

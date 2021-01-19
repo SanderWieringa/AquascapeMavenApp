@@ -26,8 +26,8 @@ public class Aquascape
 
     public Aquascape(int AquascapeId, String Name, int Difficulty)
     {
-        this.plantsInAquarium = new ArrayList<Plant>();
-        this.fishInAquarium = new ArrayList<Fish>();
+        this.plantsInAquarium = new ArrayList<>();
+        this.fishInAquarium = new ArrayList<>();
         this.aquascapeId = AquascapeId;
         this.name = Name;
         this.difficulty = Difficulty;
@@ -35,8 +35,8 @@ public class Aquascape
 
     public Aquascape()
     {
-        this.plantsInAquarium = new ArrayList<Plant>();
-        this.fishInAquarium = new ArrayList<Fish>();
+        this.plantsInAquarium = new ArrayList<>();
+        this.fishInAquarium = new ArrayList<>();
     }
 
     public synchronized void addFish(Fish fish)
@@ -63,33 +63,4 @@ public class Aquascape
         return aquascapeId;
 
     }
-
-
-
-    public void setAquascapeId(int aquascapeId)
-    {
-        this.aquascapeId = aquascapeId;
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
-    public int getDifficulty()
-    {
-        return difficulty;
-    }
-
-    public void setDifficulty(int difficulty)
-    {
-        this.difficulty = difficulty;
-    }
-
-
 }

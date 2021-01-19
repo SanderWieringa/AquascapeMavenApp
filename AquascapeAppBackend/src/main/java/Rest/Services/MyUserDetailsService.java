@@ -28,7 +28,5 @@ public class MyUserDetailsService implements UserDetailsService
         }
 
         return null;
-        //return user by username
-        //return new User("foo", "foo", new ArrayList<>());
     }
 }

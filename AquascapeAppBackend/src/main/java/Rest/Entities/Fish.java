@@ -1,8 +1,6 @@
 package Rest.Entities;
 
 import javax.persistence.*;
-import Rest.Entities.FishType;
-import Rest.Entities.FishSize;
 
 @Entity
 public class Fish {
@@ -25,35 +23,11 @@ public class Fish {
 
     }
 
-    public int getFishId() {
-        return FishId;
-    }
-
-    public void setFishId(int fishId) {
-        FishId = fishId;
-    }
-
-    public String getFishName() {
-        return FishName;
-    }
-
-    public void setFishName(String FishName) {
-        this.FishName = FishName;
-    }
-
     public FishType getFishType() {
         return FishType;
     }
 
-    public void setFishType(FishType fishType) {
-        FishType = fishType;
-    }
-
     public FishSize getFishSize() {
         return FishSize;
-    }
-
-    public void setFishSize(FishSize fishSize) {
-        FishSize = fishSize;
     }
 }

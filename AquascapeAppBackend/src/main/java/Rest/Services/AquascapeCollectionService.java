@@ -1,7 +1,6 @@
 package Rest.Services;
 
 import Rest.Entities.Aquascape;
-import Rest.Entities.Plant;
 import Rest.Repositories.IAquascapeCollectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,11 +20,6 @@ public class AquascapeCollectionService {
         }
         return instance;
     }
-
-    /*public ArrayList<Aquascape> getAllAquascapesByUser(int userId)
-    {
-        return aquascapeCollectionRepository.findAllById(userId);
-    }*/
 
     public void addAquascape(Aquascape aquascape) {
         aquascapeCollectionRepository.save(aquascape);

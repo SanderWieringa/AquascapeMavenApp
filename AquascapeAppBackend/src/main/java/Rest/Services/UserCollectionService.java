@@ -1,7 +1,6 @@
 package Rest.Services;
 
 import Rest.Entities.User;
-import Rest.Repositories.IAquascapeCollectionRepository;
 import Rest.Repositories.IUserCollectionRepository;
 import Rest.models.AuthenticationRequest;
 import Rest.util.PasswordHasher;
@@ -23,20 +22,6 @@ public class UserCollectionService implements UserDetailsService
 
     @Autowired
     private IUserCollectionRepository userCollectionRepository;
-
-    @Autowired
-    private IAquascapeCollectionRepository aquascapeCollectionRepository;
-
-    /*public User getUserByName(String username)
-    {
-        Optional<User> user = userCollectionRepository.findByUserName(username);
-        return user.orElse(null);
-    }*/
-
-    /*public ArrayList<Aquascape> getAllAquascapesByUser(int userId)
-    {
-        return userCollectionRepository.findAllById(userId);
-    }*/
 
     public User login(AuthenticationRequest authenticationRequest) throws InvalidKeySpecException, NoSuchAlgorithmException {
         User user = new User();

@@ -1,7 +1,11 @@
 package communicatorserver;
 
+import Rest.Responses.AquascapeResponse;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+import communicatorshared.CommunicatorWebSocketMessage;
+import communicatorshared.CommunicatorWebSocketMessageOperation;
+
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.util.ArrayList;
@@ -58,50 +62,48 @@ public class CommunicatorServerWebSocket {
 
         // Operation defined in message
         CommunicatorWebSocketMessageOperation operation;
-        operation = wbMessage.getOperation();
+        operation = wbMessage.getMessage();
 
         // Process message based on operation
-        String property = wbMessage.getProperty();
+        Object[] property = wbMessage.getParameters();
+        Object[] responseParameters = null;
+        CommunicatorWebSocketMessageOperation communicatorWebSocketMessageOperation = null;
+
         if (null != operation && null != property && !"".equals(property)) {
             switch (operation) {
+                case LOGIN:
+                    break;
+
+                case REGISTER:
+                    break;
+                case ADD_PLANT:
+                    break;
+                case CREATE_AQUASCAPE:
+                AquascapeResponse aquascapeResponse = new AquascapeResponse();
+                    aquascapeResponse.setSuccess(true);
+                responseParameters = new Object[]{aquascapeResponse};
+                communicatorWebSocketMessageOperation = CommunicatorWebSocketMessageOperation.CREATE_AQUASCAPE;
+
+                CommunicatorWebSocketMessage communicatorWebSocketMessage = new CommunicatorWebSocketMessage();
+                communicatorWebSocketMessage.setMessage(communicatorWebSocketMessageOperation);
+                communicatorWebSocketMessage.setParameters(responseParameters);
+                String jsonResponseMessage = gson.toJson(communicatorWebSocketMessage);
+                sessions.forEach(sess -> sess.getAsyncRemote().sendText(jsonResponseMessage));
+                    break;
+                case EDIT_AQUASCAPE:
+                    break;
                 case REGISTER_PROPERTY:
-                    // Register property if not registered yet
-                    if (propertySessions.get(property) == null) {
-                        propertySessions.put(property, new ArrayList<Session>());
-                    }
                     break;
                 case UNREGISTER_PROPERTY:
-                    // Do nothing as property may also have been registered by
-                    // another client
                     break;
                 case SUBSCRIBE_TO_PROPERTY:
-                    // Subsribe to property if the property has been registered
-                    if (propertySessions.get(property) != null) {
-                        propertySessions.get(property).add(session);
-                    }
                     break;
                 case UNSUBSCRIBE_FROM_PROPERTY:
-                    // Unsubsribe from property if the property has been registered
-                    if (propertySessions.get(property) != null) {
-                        propertySessions.get(property).remove(session);
-                    }
                     break;
                 case UPDATE_PROPERTY:
-                    // Send the message to all clients that are subscribed to this property
-                    if (propertySessions.get(property) != null) {
-                        System.out.println("[WebSocket send ] " + jsonMessage + " to:");
-                        for (Session sess : propertySessions.get(property)) {
-                            // Use asynchronous communication
-                            System.out.println("\t\t >> Client associated with server side session ID: " + sess.getId());
-                            sess.getAsyncRemote().sendText(jsonMessage);
-                        }
-                        System.out.println("[WebSocket end sending message to subscribers]");
-                    }
-                    break;
-                default:
-                    System.out.println("[WebSocket ERROR: cannot process Json message " + jsonMessage);
                     break;
             }
+
         }
     }
 }

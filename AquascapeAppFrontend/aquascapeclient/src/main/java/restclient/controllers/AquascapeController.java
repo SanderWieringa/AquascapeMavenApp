@@ -32,7 +32,7 @@ public class AquascapeController {
     public List<PlantDTO> getPlantsByAquascape(String id) {
         String queryGet = "/aquascapes";
         AquascapeResponse response = executeQueryGet(queryGet);
-        return response.getAquascape().getPlantsInAquarium();
+        return response.getAquascape().getPlantsInAquascape();
     }
 
     private AquascapeResponse executeQueryGet(String queryGet) {

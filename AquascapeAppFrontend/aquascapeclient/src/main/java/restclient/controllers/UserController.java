@@ -40,9 +40,6 @@ public class UserController {
         UserDTO userRequest = new UserDTO(1, user.getUserName(), user.getPassword());
         String queryPost = "/register";
         UserResponse response = executeQueryPost(userRequest, queryPost);
-        if (response.isSuccess()) {
-
-        }
     }
 
     public UserDTO login(UserDTO user) {

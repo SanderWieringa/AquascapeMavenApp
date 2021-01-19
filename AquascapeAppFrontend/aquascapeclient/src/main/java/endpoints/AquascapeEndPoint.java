@@ -5,6 +5,9 @@ import Messages.WebSocketMessage;*/
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import communicatorshared.CommunicatorWebSocketMessage;
+import communicatorshared.CommunicatorWebSocketMessageOperation;
+import restshared.AquascapeDTO;
+import restshared.AquascapeResponse;
 
 import javax.websocket.*;
 import java.beans.PropertyChangeListener;
@@ -164,13 +167,43 @@ public class AquascapeEndPoint extends Communicator {
         }
 
         // Get the type of response
-        CommunicatorWebSocketMessage message;
-        message = webSocketMessage.getMessage();
+        CommunicatorWebSocketMessageOperation message;
+        message = webSocketMessage.getOperation();
 
         // Obtain content from message
-        Object[] paramaters = webSocketMessage.getParameters();
+        Object[] parameters = webSocketMessage.getParameters();
 
-        if (paramaters == null || paramaters.length == 0) {
+        if (message != null) {
+            switch (message) {
+                case LOGIN:
+                    break;
+                case REGISTER:
+                    break;
+                case ADD_PLANT:
+                    break;
+                case CREATE_AQUASCAPE:
+                    AquascapeResponse aquascapeResponse = (AquascapeResponse) parameters[0];
+                    /*aquascapeResponse.setSuccess((boolean) parameters[0]);
+                    aquascapeResponse.setAquascape((AquascapeDTO) parameters[1]);*/
+                    propertyChangeSupport.firePropertyChange("CREATEAQUASCAPE", null, aquascapeResponse);
+
+                    break;
+                case EDIT_AQUASCAPE:
+                    break;
+                case REGISTER_PROPERTY:
+                    break;
+                case UNREGISTER_PROPERTY:
+                    break;
+                case SUBSCRIBE_TO_PROPERTY:
+                    break;
+                case UNSUBSCRIBE_FROM_PROPERTY:
+                    break;
+                case UPDATE_PROPERTY:
+                    break;
+            }
+        }
+
+        if (parameters == null) {
             System.out.println("[WebSocket Client ERROR: message without content]");
             return;
         }

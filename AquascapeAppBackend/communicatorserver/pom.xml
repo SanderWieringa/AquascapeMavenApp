@@ -32,6 +32,24 @@
             <artifactId>jetty-server</artifactId>
             <version>9.4.15.v20190215</version>
         </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>communicatorshared</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>AquascapeAppBackend</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>serverapplication</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 </project>

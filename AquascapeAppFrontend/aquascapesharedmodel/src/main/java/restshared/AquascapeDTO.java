@@ -3,15 +3,15 @@ package restshared;
 import java.util.ArrayList;
 
 public class AquascapeDTO {
-    private ArrayList<PlantDTO> plantsInAquarium;
-    private ArrayList<FishDTO> fishInAquarium;
+    private ArrayList<PlantDTO> plantsInAquascape;
+    private ArrayList<FishDTO> fishInAquascape;
     private int aquascapeId;
     private String name;
     private int difficulty;
 
     public AquascapeDTO() {
-        plantsInAquarium = new ArrayList<>();
-        fishInAquarium = new ArrayList<>();
+        plantsInAquascape = new ArrayList<>();
+        fishInAquascape = new ArrayList<>();
         aquascapeId = 0;
         name = "";
         difficulty = 0;
@@ -47,11 +47,11 @@ public class AquascapeDTO {
         this.difficulty = difficulty;
     }
 
-    public ArrayList<PlantDTO> getPlantsInAquarium() {
-        return plantsInAquarium;
+    public ArrayList<PlantDTO> getPlantsInAquascape() {
+        return plantsInAquascape;
     }
 
-    public void setPlantsInAquarium(ArrayList<PlantDTO> plantsInAquarium) {
-        this.plantsInAquarium = plantsInAquarium;
+    public void setPlantsInAquascape(ArrayList<PlantDTO> plantsInAquascape) {
+        this.plantsInAquascape = plantsInAquascape;
     }
 }

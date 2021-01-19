@@ -5,12 +5,13 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controllers.HomeViewController">
    <children>
-      <TableView fx:id="tableView" layoutX="118.0" layoutY="53.0" prefHeight="200.0" prefWidth="364.0">
+      <TableView fx:id="tableView" layoutX="-1.0" prefHeight="260.0" prefWidth="600.0">
         <columns>
           <TableColumn fx:id="aquascapeNameColumn" prefWidth="150.0" text="Aquascape Name" />
           <TableColumn fx:id="aquascapeDifficultyColumn" prefWidth="150.0" text="Aquascape Difficulty" />
         </columns>
       </TableView>
-      <Button fx:id="newAquascapeButton" onAction="#newAquascapeButtonClicked" layoutX="118.0" layoutY="300.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="New Aquascape" />
+      <Button fx:id="newAquascapeButton" layoutX="24.0" layoutY="285.0" mnemonicParsing="false" onAction="#newAquascapeButtonClicked" prefHeight="40.0" prefWidth="120.0" text="New Aquascape" />
+      <Button fx:id="editAquascapeEvent" layoutX="158.0" layoutY="285.0" mnemonicParsing="false" onAction="#editAquascapeEvent" prefHeight="40.0" prefWidth="120.0" text="Edit Aquascape" />
    </children>
 </AnchorPane>

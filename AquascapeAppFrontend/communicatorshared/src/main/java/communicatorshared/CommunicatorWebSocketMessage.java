@@ -6,10 +6,7 @@ public class CommunicatorWebSocketMessage {
     private CommunicatorWebSocketMessageOperation operation;
 
     // Property
-    private String property;
-
-    // Content
-    private String content;
+    private Object[] parameters;
 
     public CommunicatorWebSocketMessageOperation getOperation() {
         return operation;
@@ -19,19 +16,11 @@ public class CommunicatorWebSocketMessage {
         this.operation = operation;
     }
 
-    public String getProperty() {
-        return property;
+    public Object[] getParameters() {
+        return parameters;
     }
 
-    public void setProperty(String property) {
-        this.property = property;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
+    public void setParameters(Object[] parameters) {
+        this.parameters = parameters;
     }
 }

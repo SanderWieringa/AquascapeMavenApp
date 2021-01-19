@@ -1,5 +1,7 @@
 package org.controllers;
 
+import endpoints.AquascapeEndPoint;
+import endpoints.Communicator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +19,10 @@ import java.util.ResourceBundle;
 
 public class LoginViewController implements Initializable {
 
+    private Communicator communicator = null;
+
+    private AquascapeEndPoint endPoint;
+
     UserController userController = new UserController();
     @FXML
     private TextField userNameTextField;
@@ -25,12 +31,14 @@ public class LoginViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        endPoint = AquascapeEndPoint.getInstance();
     }
 
     public void handleLoginClick(ActionEvent actionEvent) throws IOException {
         if (!(userNameTextField.getText() == null && passwordTextField.getText() == null)) {
             userController.login(new UserDTO(1, userNameTextField.getText(), passwordTextField.getText()));
+            endPoint.start();
+
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/HomeView.fxml"));
             Scene scene = new Scene(root);
@@ -39,7 +47,6 @@ public class LoginViewController implements Initializable {
             stage.show();
         }
     }
-
 
     public void handleregisterClick(ActionEvent actionEvent) {
         if (!(userNameTextField.getText() == null && passwordTextField.getText() == null)) {

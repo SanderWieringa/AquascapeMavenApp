@@ -2,9 +2,24 @@
 
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.controllers.AquascapeViewController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controllers.AquascapeViewController">
+    <children>
+        <TableView fx:id="plantTableView" layoutY="128.0" prefHeight="172.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="plantNameColumn" prefWidth="150.0" text="Plant Name" />
+                <TableColumn fx:id="plantDifficultyColumn" prefWidth="150.0" text="Plant Difficulty" />
+            </columns>
+        </TableView>
+        <Button fx:id="addPlantButton" layoutX="31.0" layoutY="340.0" mnemonicParsing="false" onAction="#addPlantsButtonClicked" prefHeight="25.0" prefWidth="108.0" text="Add Plants" />
+        <TextField fx:id="aquascapeNameTextField" layoutX="139.0" layoutY="21.0" />
+        <TextField fx:id="aquascapeDifficultyTextField" layoutX="139.0" layoutY="58.0" />
+        <Label layoutX="31.0" layoutY="25.0" text="Aquascape Name: " />
+        <Label layoutX="15.0" layoutY="62.0" text="Aquascape Difficulty: " />
+        <Label layoutX="16.0" layoutY="100.0" text="Plants in your Aquascape: " />
+    </children>
 </AnchorPane>

@@ -20,7 +20,7 @@ public class AquascapeEndPoint extends Communicator {
 
     private static AquascapeEndPoint instance = null;
 
-    private final String uri = "ws://localhost:8095/servercommunicator/";
+    private final String uri = "ws://localhost:8096/communicator/";
 
     private Session session;
 

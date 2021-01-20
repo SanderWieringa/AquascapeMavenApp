@@ -37,6 +37,7 @@ public class LoginViewController implements Initializable {
     public void handleLoginClick(ActionEvent actionEvent) throws IOException {
         if (!(userNameTextField.getText() == null && passwordTextField.getText() == null)) {
             userController.login(new UserDTO(1, userNameTextField.getText(), passwordTextField.getText()));
+            endPoint = AquascapeEndPoint.getInstance();
             endPoint.start();
 
             Stage stage = new Stage();

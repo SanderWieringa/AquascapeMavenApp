@@ -44,6 +44,7 @@ public class HomeViewController implements Initializable, PropertyChangeListener
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        endPoint = AquascapeEndPoint.getInstance();
         aquascapeNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         aquascapeDifficultyColumn.setCellValueFactory(new PropertyValueFactory<>("difficulty"));
 
